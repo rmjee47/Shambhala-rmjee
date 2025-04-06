@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shambhala RMJEE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      background: #000;
+      scroll-behavior: smooth;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), #000);
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+    .logo {
+      max-width: 200px;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      color: gold;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #ccc;
+      max-width: 600px;
+    }
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    section {
+      padding: 5rem 2rem;
+      background: #111;
+      text-align: center;
+    }
+    section h2 {
+      font-family: 'Cinzel', serif;
+      color: gold;
+      margin-bottom: 1rem;
+    }
+    section p {
+      color: #bbb;
+      max-width: 700px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <video src="background.mp4" autoplay muted loop></video>
+    <div class="overlay"></div>
+    <div class="content">
+      <img src="logo.png" alt="Shambhala RMJEE Logo" class="logo">
+      <h1>Shambhala RMJEE</h1>
+      <p>Where Spirit Meets Strength</p>
+    </div>
+    <div class="scroll-down">Scroll Down</div>
+  </div>
+
+  <section>
+    <h2>Our Journey</h2>
+    <p>
+      Shambhala is born from struggle, silence, and sacred strength. Guided by the Shotokan spirit and Vishnu's presence,
+      this is not just martial art — it is a path to awakening.
+    </p>
+  </section>
+</body>
+</html>
