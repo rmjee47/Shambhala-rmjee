@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shambhala</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <style>
@@ -11,164 +10,165 @@
       font-family: 'Segoe UI', sans-serif;
       background: url('karate-vedic-texture.png') repeat;
       background-size: cover;
-      color: #fff;
+      color: #111;
       scroll-behavior: smooth;
-    }
+    }header {
+  background: #000;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
 
-    header {
-      background: #000;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
+header h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+  animation: fadeIn 2s ease-out forwards;
+  color: #fff;
+  background-color: #000;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 10px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 2px;
-      animation: fadeIn 2s ease-out forwards;
-      background-color: #000;
-      padding: 0.5rem 1rem;
-      display: inline-block;
-      border-radius: 10px;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    }
+header p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeIn 2s 1s forwards;
+}
 
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      font-style: italic;
-      opacity: 0;
-      animation: fadeIn 2s 1s forwards;
-    }
+.section {
+  padding: 4rem 1rem;
+  max-width: 800px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
+}
 
-    .section {
-      padding: 4rem 1rem;
-      max-width: 800px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease-out;
-    }
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: 'Cinzel', serif;
+  color: #c00000;
+}
 
-    .section h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-      font-family: 'Cinzel', serif;
-      color: #c00000;
-    }
+.logo {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 300px;
+  filter: drop-shadow(0 0 10px #c00000);
+}
 
-    .logo {
-      display: block;
-      margin: 1.5rem auto;
-      max-width: 300px;
-      filter: drop-shadow(0 0 10px #c00000);
-    }
+.cta {
+  text-align: center;
+  margin-top: 2rem;
+}
 
-    .quote-img {
-      display: block;
-      max-width: 90%;
-      margin: 2rem auto;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-      animation: fadeIn 2s ease forwards;
-    }
+.cta a {
+  background: #c00000;
+  color: #fff;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  box-shadow: 0 0 8px rgba(192,0,0,0.4);
+}
 
-    .cta {
-      text-align: center;
-      margin-top: 2rem;
-    }
+.cta a:hover {
+  background: #a80000;
+}
 
-    .cta a {
-      background: #c00000;
-      color: #fff;
-      padding: 0.8rem 1.8rem;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-      box-shadow: 0 0 8px rgba(192,0,0,0.4);
-    }
+.insta-feed {
+  padding: 2rem 1rem;
+  background: linear-gradient(#fdfcf9, #f2f2f2);
+  text-align: center;
+}
 
-    .cta a:hover {
-      background: #a80000;
-    }
+.insta-feed h2 {
+  font-family: 'Cinzel', serif;
+  margin-bottom: 1rem;
+  color: #c00000;
+}
 
-    .insta-feed {
-      padding: 2rem 1rem;
-      background: linear-gradient(#fdfcf9, #f2f2f2);
-      text-align: center;
-    }
+.quote-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
 
-    .insta-feed h2 {
-      font-family: 'Cinzel', serif;
-      margin-bottom: 1rem;
-      color: #c00000;
-    }
+.quote-gallery img {
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  transform: scale(0.95);
+}
 
-    footer {
-      background: #000;
-      color: #bbb;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
+.quote-gallery img.visible {
+  opacity: 1;
+  transform: scale(1);
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+footer {
+  background: #fdfcf9;
+  color: #888;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
   </style>
 </head>
 <body>
   <header>
     <h1>Shambhala</h1>
     <p>Where Spirit Meets Strength</p>
-  </header>
-
-  <div class="section">
+  </header>  <div class="section">
     <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Logo" class="logo" />
     <h2>Welcome to the Movement</h2>
-    <p>
+    <p style="color: #000;">
       Shambhala is not just a martial arts brand. It is a living path of discipline, spirituality, and transformation.
       Born from the journey of one spirit, passion, and vision.
     </p>
-  </div>
-
-  <div class="section">
+  </div>  <div class="section">
     <h2>Join the Journey</h2>
-    <p>
+    <p style="color: #000;">
       Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
     </p>
     <div class="cta">
       <a href="#">Sign Up for Training</a>
     </div>
-  </div>
-
-  <div class="section">
-    <h2>Wisdom Wall</h2>
-    <img src="quote1.png" alt="Quote 1" class="quote-img" />
-    <img src="quote2.png" alt="Quote 2" class="quote-img" />
-    <img src="quote3.png" alt="Quote 3" class="quote-img" />
-  </div>
-
-  <div class="insta-feed">
-    <h2>Follow @shambhala_official</h2>
+  </div>  <div class="quote-gallery">
+    <img src="A_digital_graphic_design_features_an_inspirational.png" alt="Quote 1" class="quote-img" />
+    <img src="A_digital_graphic_design_features_an_inspirational (1).png" alt="Quote 2" class="quote-img" />
+  </div>  <div class="insta-feed">
+    <h2>Instagram Feed</h2>
     <iframe src="https://snapwidget.com/embed/1053591" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:500px"></iframe>
-  </div>
-
-  <footer>
+  </div>  <footer>
     &copy; 2025 Shambhala. All rights reserved.
-  </footer>
-
-  <script>
+  </footer>  <script>
     const sections = document.querySelectorAll('.section');
+    const quotes = document.querySelectorAll('.quote-img');
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -177,7 +177,20 @@
       });
     }, { threshold: 0.15 });
 
-    sections.forEach(section => observer.observe(section));
-  </script>
-</body>
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    const quoteObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    quotes.forEach(quote => {
+      quoteObserver.observe(quote);
+    });
+  </script></body>
 </html>
