@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shambhala</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <style>
@@ -11,7 +11,7 @@
       font-family: 'Segoe UI', sans-serif;
       background: url('karate-vedic-texture.png') repeat;
       background-size: cover;
-      color: #111;
+      color: #fff;
       scroll-behavior: smooth;
     }
 
@@ -29,11 +29,10 @@
       letter-spacing: 2px;
       animation: fadeIn 2s ease-out forwards;
       background-color: #000;
-      color: #fff;
       padding: 0.5rem 1rem;
       display: inline-block;
       border-radius: 10px;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
 
     header p {
@@ -72,6 +71,15 @@
       filter: drop-shadow(0 0 10px #c00000);
     }
 
+    .quote-img {
+      display: block;
+      max-width: 90%;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 2s ease forwards;
+    }
+
     .cta {
       text-align: center;
       margin-top: 2rem;
@@ -104,21 +112,9 @@
       color: #c00000;
     }
 
-    .insta-handle {
-      margin-top: 1rem;
-      font-size: 1rem;
-      color: #c00000;
-    }
-
-    .insta-handle a {
-      color: #c00000;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
     footer {
-      background: #fdfcf9;
-      color: #888;
+      background: #000;
+      color: #bbb;
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
@@ -155,13 +151,16 @@
     </div>
   </div>
 
+  <div class="section">
+    <h2>Wisdom Wall</h2>
+    <img src="quote1.png" alt="Quote 1" class="quote-img" />
+    <img src="quote2.png" alt="Quote 2" class="quote-img" />
+    <img src="quote3.png" alt="Quote 3" class="quote-img" />
+  </div>
+
   <div class="insta-feed">
-    <h2>Instagram Feed</h2>
+    <h2>Follow @shambhala_official</h2>
     <iframe src="https://snapwidget.com/embed/1053591" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:500px"></iframe>
-    <div class="insta-handle">
-      Follow us on Instagram:
-      <a href="https://instagram.com/shambhala_official" target="_blank">@shambhala_official</a>
-    </div>
   </div>
 
   <footer>
@@ -178,9 +177,7 @@
       });
     }, { threshold: 0.15 });
 
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
