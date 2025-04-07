@@ -1,4 +1,4 @@
-<<<!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,15 +12,20 @@
       color: #111;
       scroll-behavior: smooth;
     }header {
-  background: #1a1a1a;
-  color: #fff;
+  background: #fdfcf9;
+  color: #c00000;
   padding: 2rem;
   text-align: center;
 }
 
 header h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+  animation: fadeIn 2s ease-out forwards;
   color: #c00000;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  text-shadow: 0 0 15px rgba(192, 0, 0, 0.7);
 }
 
 header p {
@@ -49,14 +54,14 @@ header p {
   text-align: center;
   margin-bottom: 1rem;
   font-family: 'Cinzel', serif;
-  color: #000;
+  color: #c00000;
 }
 
 .logo {
   display: block;
   margin: 1.5rem auto;
   max-width: 300px;
-  filter: drop-shadow(0 0 5px gold);
+  filter: drop-shadow(0 0 10px #c00000);
 }
 
 .cta {
@@ -65,18 +70,18 @@ header p {
 }
 
 .cta a {
-  background: #000;
+  background: #c00000;
   color: #fff;
   padding: 0.8rem 1.8rem;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
   transition: background 0.3s ease;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px rgba(192,0,0,0.4);
 }
 
 .cta a:hover {
-  background: #444;
+  background: #a80000;
 }
 
 .insta-feed {
@@ -88,11 +93,12 @@ header p {
 .insta-feed h2 {
   font-family: 'Cinzel', serif;
   margin-bottom: 1rem;
+  color: #c00000;
 }
 
 footer {
-  background: #111;
-  color: #bbb;
+  background: #fdfcf9;
+  color: #888;
   text-align: center;
   padding: 1rem;
   margin-top: 3rem;
