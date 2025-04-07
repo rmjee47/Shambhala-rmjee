@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shambhala</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
       margin: 0;
@@ -29,7 +28,6 @@
       font-family: 'Cinzel', serif;
       letter-spacing: 2px;
       animation: fadeIn 2s ease-out forwards;
-      color: #fff;
       background-color: #000;
       padding: 0.5rem 1rem;
       display: inline-block;
@@ -87,6 +85,7 @@
       font-weight: bold;
       transition: background 0.3s ease;
       box-shadow: 0 0 8px rgba(192,0,0,0.4);
+      cursor: pointer;
     }
 
     .cta a:hover {
@@ -99,12 +98,6 @@
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
-    }
-
-    footer a {
-      color: #c00000;
-      text-decoration: none;
-      font-weight: bold;
     }
 
     .instructors {
@@ -142,6 +135,43 @@
       margin-bottom: 0.5rem;
     }
 
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 720px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal iframe {
+      width: 100%;
+      height: 90vh;
+      border: none;
+    }
+
+    .modal .close {
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      font-size: 28px;
+      color: #333;
+      cursor: pointer;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -168,7 +198,7 @@
       Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
     </p>
     <div class="cta">
-      <a href="#" onclick="document.getElementById('signup-modal').style.display='block'">Sign Up for Training</a>
+      <a onclick="openSignupModal()">Sign Up for Training</a>
     </div>
   </div>
 
@@ -176,21 +206,21 @@
     <h2>Meet Our Instructors</h2>
 
     <div class="instructor-card">
-      <img src="sensei-deb.jpg" alt="Sensei Debabrata" />
+      <img src="sensei-deb.jpg" alt="Sensei Ichiban" />
       <h3>Shihan Dai Debabrata Chakraborty</h3>
-      <p>Head Instructor - 4th Dan Black Belt with over 13 years of experience. A master of traditional and sport Karate, guiding Shambhala’s journey from its roots.</p>
+      <p>Head Instructor - 4th Dan Black Belt having an experience of more than 13 years. A master of traditional and sport Karate inculcating spiritual warrior discipline, guiding Shambhala’s journey from its roots.</p>
     </div>
 
     <div class="instructor-card">
-      <img src="sensei-rohan.jpg" alt="Sensei Rohan" />
+      <img src="sensei-rohan.jpg" alt="Sensei Akira" />
       <h3>Senpai Rohan Mukherjee</h3>
-      <p>Traditional Shotokan Karate World Champion. Expert in Kumite & Kata. Known for explosive techniques and martial philosophy. Trains students in Kenjutsu.</p>
+      <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy. Trains advanced disciples, the art of Kenjutsu.</p>
     </div>
 
     <div class="instructor-card">
       <img src="sensei-dev.jpg" alt="Sensei Dev" />
       <h3>Announcing soon</h3>
-      <p>Karate for Mind & Body. Merges modern training with Vedic principles, empowering balance between strength and spirit.</p>
+      <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles, empowering students to balance strength and spirit.</p>
     </div>
 
     <div class="instructor-card">
@@ -200,23 +230,18 @@
     </div>
   </div>
 
+  <footer>
+    <p>Follow us on <a href="https://www.instagram.com/shambhala_official" target="_blank">@shambhala_official</a></p>
+    &copy; 2025 Shambhala. All rights reserved.
+  </footer>
+
   <!-- Modal for Google Form -->
-  <div id="signup-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
-    <div style="position:relative; width:90%; max-width:800px; margin:3rem auto; background:#fff; padding:1rem; border-radius:10px;">
-      <div style="text-align:right;">
-        <button onclick="document.getElementById('signup-modal').style.display='none'" style="background:#c00000; color:#fff; border:none; padding:0.5rem 1rem; cursor:pointer; border-radius:5px;">Close</button>
-      </div>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" width="100%" height="1585" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  <div id="signup-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeSignupModal()">&times;</span>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" allowfullscreen></iframe>
     </div>
   </div>
-
-  <footer>
-    &copy; 2025 Shambhala. All rights reserved.<br>
-    Follow us on 
-    <a href="https://instagram.com/shambhala_official" target="_blank">
-      <i class="fab fa-instagram"></i> @shambhala_official
-    </a>
-  </footer>
 
   <script>
     const sections = document.querySelectorAll('.section');
@@ -228,9 +253,36 @@
       });
     }, { threshold: 0.15 });
 
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    sections.forEach(section => observer.observe(section));
+
+    function openSignupModal() {
+      document.getElementById('signup-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSignupModal() {
+      document.getElementById('signup-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // Auto-close modal after form submission + Thank You alert
+    const formIframe = document.querySelector('#signup-modal iframe');
+    let submitted = false;
+
+    formIframe.onload = function () {
+      try {
+        const iframeUrl = formIframe.contentWindow.location.href;
+        if (!submitted && iframeUrl.includes('formResponse')) {
+          submitted = true;
+          setTimeout(() => {
+            alert("Thank you for signing up!");
+            closeSignupModal();
+          }, 300);
+        }
+      } catch (e) {
+        // Do nothing on CORS error
+      }
+    };
   </script>
 </body>
 </html>
