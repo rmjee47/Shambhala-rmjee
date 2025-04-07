@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shambhala</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
       margin: 0;
@@ -77,7 +78,7 @@
       margin-top: 2rem;
     }
 
-    .cta button {
+    .cta a {
       background: #c00000;
       color: #fff;
       padding: 0.8rem 1.8rem;
@@ -85,19 +86,11 @@
       border-radius: 6px;
       font-weight: bold;
       transition: background 0.3s ease;
-      border: none;
-      cursor: pointer;
       box-shadow: 0 0 8px rgba(192,0,0,0.4);
     }
 
-    .cta button:hover {
+    .cta a:hover {
       background: #a80000;
-    }
-
-    .insta-feed {
-      padding: 2rem 1rem;
-      background: linear-gradient(#fdfcf9, #f2f2f2);
-      text-align: center;
     }
 
     footer {
@@ -106,6 +99,12 @@
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
+    }
+
+    footer a {
+      color: #c00000;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .instructors {
@@ -147,39 +146,6 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* Modal Styling */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: 5% auto;
-      padding: 1rem;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 700px;
-      position: relative;
-    }
-
-    .close {
-      position: absolute;
-      right: 15px;
-      top: 10px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #c00000;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
@@ -202,33 +168,55 @@
       Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
     </p>
     <div class="cta">
-      <button onclick="openModal()">Sign Up for Training</button>
+      <a href="#" onclick="document.getElementById('signup-modal').style.display='block'">Sign Up for Training</a>
     </div>
   </div>
 
   <div class="section instructors">
     <h2>Meet Our Instructors</h2>
-    <!-- Instructor Cards -->
-    <!-- ... same as before ... -->
+
+    <div class="instructor-card">
+      <img src="sensei-deb.jpg" alt="Sensei Debabrata" />
+      <h3>Shihan Dai Debabrata Chakraborty</h3>
+      <p>Head Instructor - 4th Dan Black Belt with over 13 years of experience. A master of traditional and sport Karate, guiding Shambhala’s journey from its roots.</p>
+    </div>
+
+    <div class="instructor-card">
+      <img src="sensei-rohan.jpg" alt="Sensei Rohan" />
+      <h3>Senpai Rohan Mukherjee</h3>
+      <p>Traditional Shotokan Karate World Champion. Expert in Kumite & Kata. Known for explosive techniques and martial philosophy. Trains students in Kenjutsu.</p>
+    </div>
+
+    <div class="instructor-card">
+      <img src="sensei-dev.jpg" alt="Sensei Dev" />
+      <h3>Announcing soon</h3>
+      <p>Karate for Mind & Body. Merges modern training with Vedic principles, empowering balance between strength and spirit.</p>
+    </div>
+
+    <div class="instructor-card">
+      <img src="sensei-aiko.jpg" alt="Sensei Aiko" />
+      <h3>Announcing soon</h3>
+      <p>Women's Self Defense & Wellness</p>
+    </div>
   </div>
 
-  <div class="insta-feed">
-    <h2>Instagram Feed</h2>
-    <p>Follow us on <strong>@shambhala_official</strong></p>
-    <iframe src="https://snapwidget.com/embed/1053591" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:500px"></iframe>
+  <!-- Modal for Google Form -->
+  <div id="signup-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
+    <div style="position:relative; width:90%; max-width:800px; margin:3rem auto; background:#fff; padding:1rem; border-radius:10px;">
+      <div style="text-align:right;">
+        <button onclick="document.getElementById('signup-modal').style.display='none'" style="background:#c00000; color:#fff; border:none; padding:0.5rem 1rem; cursor:pointer; border-radius:5px;">Close</button>
+      </div>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" width="100%" height="1585" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
   </div>
 
   <footer>
-    &copy; 2025 Shambhala. All rights reserved.
+    &copy; 2025 Shambhala. All rights reserved.<br>
+    Follow us on 
+    <a href="https://instagram.com/shambhala_official" target="_blank">
+      <i class="fab fa-instagram"></i> @shambhala_official
+    </a>
   </footer>
-
-  <!-- Modal -->
-  <div id="formModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-  </div>
 
   <script>
     const sections = document.querySelectorAll('.section');
@@ -240,21 +228,8 @@
       });
     }, { threshold: 0.15 });
 
-    sections.forEach(section => observer.observe(section));
-
-    function openModal() {
-      document.getElementById('formModal').style.display = 'block';
-    }
-
-    function closeModal() {
-      document.getElementById('formModal').style.display = 'none';
-    }
-
-    // Optional: Redirect after submission
-    window.addEventListener('message', (e) => {
-      if (e.origin.includes("google.com")) {
-        window.location.href = "thank-you.html";
-      }
+    sections.forEach(section => {
+      observer.observe(section);
     });
   </script>
 </body>
