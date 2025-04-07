@@ -1,73 +1,98 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shambhala</title>
+  <title>Shambhala RMJEE</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
       height: 100%;
+      width: 100%;
       font-family: 'Open Sans', sans-serif;
+      background-color: #000;
       color: #fff;
-      background: #000;
-      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
+
+    /* Hero Section */
     .hero {
       position: relative;
       height: 100vh;
       overflow: hidden;
     }
+
     .hero video {
       position: absolute;
       top: 0;
       left: 0;
-      object-fit: cover;
-      width: 100%;
       height: 100%;
-      opacity: 0.3;
+      width: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.4);
     }
+
     .overlay {
       position: absolute;
       top: 0;
       left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(3px);
+      z-index: -1;
+    }
+
+    .particles {
+      position: absolute;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), #000);
+      background: url('https://cdn.pixabay.com/photo/2018/03/04/16/32/fire-3190822_1280.png') repeat;
+      opacity: 0.06;
+      animation: move 60s linear infinite;
     }
+
+    @keyframes move {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
     .content {
+      z-index: 10;
       position: relative;
-      z-index: 2;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      animation: fadeIn 2s ease-in-out;
       text-align: center;
-      padding: 0 2rem;
     }
+
     .logo {
       max-width: 200px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 10px gold);
+      animation: glow 4s ease-in-out infinite;
     }
+
     h1 {
       font-family: 'Cinzel', serif;
-      font-size: 3rem;
-      letter-spacing: 2px;
+      font-size: 3.5rem;
       color: gold;
+      text-shadow: 2px 2px 12px rgba(255, 215, 0, 0.4);
     }
+
     p {
       font-size: 1.2rem;
-      margin-top: 1rem;
       color: #ccc;
+      margin-top: 1rem;
       max-width: 600px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
     }
+
     .scroll-down {
       position: absolute;
       bottom: 20px;
@@ -75,17 +100,36 @@
       transform: translateX(-50%);
       font-size: 0.9rem;
       color: #aaa;
+      animation: bounce 2s infinite;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 10px); }
+    }
+
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 10px gold); }
+      50% { filter: drop-shadow(0 0 20px #ffd700); }
+    }
+
     section {
       padding: 5rem 2rem;
-      background: #111;
+      background-color: #111;
       text-align: center;
     }
+
     section h2 {
       font-family: 'Cinzel', serif;
       color: gold;
       margin-bottom: 1rem;
     }
+
     section p {
       color: #bbb;
       max-width: 700px;
@@ -97,10 +141,11 @@
   <div class="hero">
     <video src="background.mp4" autoplay muted loop></video>
     <div class="overlay"></div>
+    <div class="particles"></div>
     <div class="content">
-      <img src="IMG-20250405-WA0028.jpg" alt="Shambhala RMJEE Logo" class="logo">
-      <h1>Shambhala</h1>
-      <p>Where Spirit meets Strength</p>
+      <img src="logo.jpg" alt="Shambhala RMJEE Logo" class="logo">
+      <h1>Shambhala RMJEE</h1>
+      <p>Where Spirit Meets Strength</p>
     </div>
     <div class="scroll-down">Scroll Down</div>
   </div>
@@ -108,8 +153,8 @@
   <section>
     <h2>Our Journey</h2>
     <p>
-      Shambhala is born from struggle, silence, and sacred strength. Guided by the Karate spirit and Vishnu's presence,
-      this is not just any other martial art centre — it is a path to awakening and self remembering.
+      Shambhala is born from struggle, silence, and sacred strength. Guided by the Shotokan spirit and Vishnu's presence,
+      this is not just martial art — it is a path to awakening.
     </p>
   </section>
 </body>
