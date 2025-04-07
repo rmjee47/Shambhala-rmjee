@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shambhala</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <style>
@@ -85,7 +85,6 @@
       font-weight: bold;
       transition: background 0.3s ease;
       box-shadow: 0 0 8px rgba(192,0,0,0.4);
-      cursor: pointer;
     }
 
     .cta a:hover {
@@ -135,41 +134,38 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Modal styles */
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
       z-index: 9999;
-      top: 0; left: 0; right: 0; bottom: 0;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
       background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
     }
 
     .modal-content {
       background-color: #fff;
+      margin: 5% auto;
+      padding: 1rem;
       border-radius: 10px;
-      width: 100%;
-      max-width: 720px;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-    }
-
-    .modal iframe {
-      width: 100%;
+      width: 95%;
+      max-width: 700px;
       height: 90vh;
-      border: none;
+      overflow: auto;
     }
 
-    .modal .close {
-      position: absolute;
-      top: 10px;
-      right: 16px;
+    .close-btn {
+      color: #aaa;
+      float: right;
       font-size: 28px;
-      color: #333;
+      font-weight: bold;
       cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #000;
     }
 
     @keyframes fadeIn {
@@ -179,6 +175,7 @@
   </style>
 </head>
 <body>
+
   <header>
     <h1>Shambhala</h1>
     <p>Where Spirit Meets Strength</p>
@@ -198,7 +195,7 @@
       Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
     </p>
     <div class="cta">
-      <a onclick="openSignupModal()">Sign Up for Training</a>
+      <a href="#" onclick="openFormModal()">Sign Up for Training</a>
     </div>
   </div>
 
@@ -208,19 +205,19 @@
     <div class="instructor-card">
       <img src="sensei-deb.jpg" alt="Sensei Ichiban" />
       <h3>Shihan Dai Debabrata Chakraborty</h3>
-      <p>Head Instructor - 4th Dan Black Belt having an experience of more than 13 years. A master of traditional and sport Karate inculcating spiritual warrior discipline, guiding Shambhala’s journey from its roots.</p>
+      <p>Head Instructor - 4th Dan Black Belt with 13+ years of experience. A master of traditional and sport Karate guiding Shambhala’s journey from its roots.</p>
     </div>
 
     <div class="instructor-card">
       <img src="sensei-rohan.jpg" alt="Sensei Akira" />
       <h3>Senpai Rohan Mukherjee</h3>
-      <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy. Trains advanced disciples, the art of Kenjutsu.</p>
+      <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy.</p>
     </div>
 
     <div class="instructor-card">
       <img src="sensei-dev.jpg" alt="Sensei Dev" />
       <h3>Announcing soon</h3>
-      <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles, empowering students to balance strength and spirit.</p>
+      <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles to balance strength and spirit.</p>
     </div>
 
     <div class="instructor-card">
@@ -231,19 +228,53 @@
   </div>
 
   <footer>
-    <p>Follow us on <a href="https://www.instagram.com/shambhala_official" target="_blank">@shambhala_official</a></p>
-    &copy; 2025 Shambhala. All rights reserved.
+    <p style="font-size: 1rem;">
+      Follow us on 
+      <a href="https://www.instagram.com/shambhala_official" 
+         target="_blank" 
+         style="color: #c00000; font-weight: bold; text-decoration: none; margin-left: 4px;"
+         onmouseover="this.style.textDecoration='underline'; this.style.color='#a80000';"
+         onmouseout="this.style.textDecoration='none'; this.style.color='#c00000';">
+        @shambhala_official
+      </a>
+    </p>
+    <p>&copy; 2025 Shambhala. All rights reserved.</p>
   </footer>
 
-  <!-- Modal for Google Form -->
-  <div id="signup-modal" class="modal">
+  <!-- Modal -->
+  <div id="formModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeSignupModal()">&times;</span>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" allowfullscreen></iframe>
+      <span class="close-btn" onclick="closeFormModal()">&times;</span>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" 
+              width="100%" 
+              height="100%" 
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0">Loading…</iframe>
     </div>
   </div>
 
   <script>
+    function openFormModal() {
+      document.getElementById('formModal').style.display = 'block';
+    }
+
+    function closeFormModal() {
+      document.getElementById('formModal').style.display = 'none';
+    }
+
+    window.addEventListener('message', function(event) {
+      if (event.origin.includes("google.com")) {
+        const formUrl = event.data;
+        if (formUrl && formUrl.includes("formResponse")) {
+          setTimeout(() => {
+            closeFormModal();
+            window.location.href = "thank-you.html"; // Change to your custom thank you page
+          }, 2000);
+        }
+      }
+    });
+
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -253,36 +284,9 @@
       });
     }, { threshold: 0.15 });
 
-    sections.forEach(section => observer.observe(section));
-
-    function openSignupModal() {
-      document.getElementById('signup-modal').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeSignupModal() {
-      document.getElementById('signup-modal').style.display = 'none';
-      document.body.style.overflow = '';
-    }
-
-    // Auto-close modal after form submission + Thank You alert
-    const formIframe = document.querySelector('#signup-modal iframe');
-    let submitted = false;
-
-    formIframe.onload = function () {
-      try {
-        const iframeUrl = formIframe.contentWindow.location.href;
-        if (!submitted && iframeUrl.includes('formResponse')) {
-          submitted = true;
-          setTimeout(() => {
-            alert("Thank you for signing up!");
-            closeSignupModal();
-          }, 300);
-        }
-      } catch (e) {
-        // Do nothing on CORS error
-      }
-    };
+    sections.forEach(section => {
+      observer.observe(section);
+    });
   </script>
 </body>
 </html>
