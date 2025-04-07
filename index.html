@@ -4,157 +4,160 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shambhala</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      height: 100%;
-      width: 100%;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #000;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfcf9;
+      color: #111;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #000;
       color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* Hero Section */
-    .hero {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      z-index: -2;
-      filter: brightness(0.4);
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(3px);
-      z-index: -1;
-    }
-
-    .particles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: url('https://cdn.pixabay.com/photo/2018/03/04/16/32/fire-3190822_1280.png') repeat;
-      opacity: 0.06;
-      animation: move 60s linear infinite;
-    }
-
-    @keyframes move {
-      0% { background-position: 0 0; }
-      100% { background-position: 1000px 1000px; }
-    }
-
-    .content {
-      z-index: 10;
-      position: relative;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 2s ease-in-out;
+      padding: 2rem;
       text-align: center;
     }
 
-    .logo {
-      max-width: 200px;
-      margin-bottom: 1.5rem;
-      filter: drop-shadow(0 0 10px gold);
-      animation: glow 4s ease-in-out infinite;
-    }
-
-    h1 {
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
       font-family: 'Cinzel', serif;
-      font-size: 3.5rem;
-      color: gold;
-      text-shadow: 2px 2px 12px rgba(255, 215, 0, 0.4);
+      letter-spacing: 2px;
+      animation: fadeIn 2s ease-out forwards;
     }
 
-    p {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-top: 1rem;
-      max-width: 600px;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      font-style: italic;
+      opacity: 0;
+      animation: fadeIn 2s 1s forwards;
     }
 
-    .scroll-down {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.9rem;
-      color: #aaa;
-      animation: bounce 2s infinite;
+    .section {
+      padding: 4rem 1rem;
+      max-width: 800px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-family: 'Cinzel', serif;
+      color: #000;
+    }
+
+    .logo {
+      display: block;
+      margin: 1.5rem auto;
+      max-width: 300px;
+      filter: drop-shadow(0 0 5px gold);
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .cta a {
+      background: #000;
+      color: #fff;
+      padding: 0.8rem 1.8rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+
+    .cta a:hover {
+      background: #444;
+    }
+
+    .insta-feed {
+      padding: 2rem 1rem;
+      background: linear-gradient(#fdfcf9, #f2f2f2);
+      text-align: center;
+    }
+
+    .insta-feed h2 {
+      font-family: 'Cinzel', serif;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: #111;
+      color: #bbb;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    @keyframes bounce {
-      0%, 100% { transform: translate(-50%, 0); }
-      50% { transform: translate(-50%, 10px); }
-    }
-
-    @keyframes glow {
-      0%, 100% { filter: drop-shadow(0 0 10px gold); }
-      50% { filter: drop-shadow(0 0 20px #ffd700); }
-    }
-
-    section {
-      padding: 5rem 2rem;
-      background-color: #111;
-      text-align: center;
-    }
-
-    section h2 {
-      font-family: 'Cinzel', serif;
-      color: gold;
-      margin-bottom: 1rem;
-    }
-
-    section p {
-      color: #bbb;
-      max-width: 700px;
-      margin: auto;
-    }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <video src="background.mp4" autoplay muted loop></video>
-    <div class="overlay"></div>
-    <div class="particles"></div>
-    <div class="content">
-      <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Logo" class="logo">
-      <h1>Shambhala</h1>
-      <p>Where Spirit Meets Strength</p>
-    </div>
-    <div class="scroll-down">Scroll Down</div>
+  <header>
+    <h1>Shambhala RMJEE</h1>
+    <p>Where Spirit Meets Strength</p>
+  </header>
+
+  <div class="section">
+    <img src="logo.jpg" alt="Shambhala RMJEE Logo" class="logo" />
+    <h2>Welcome to the Movement</h2>
+    <p>
+      Shambhala RMJEE is not just a martial arts brand. It is a living path of discipline, spirituality, and transformation.
+      Born from the journey of one spirit, passion, and vision.
+    </p>
   </div>
 
-  <section>
-    <h2>Our Journey</h2>
+  <div class="section">
+    <h2>Join the Journey</h2>
     <p>
-      Shambhala is born from struggle, silence, and sacred strength. Guided by the Shotokan spirit and Vishnu's presence,it is not just martial art centre and a brand, it is a path to awakening.
+      Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
     </p>
-  </section>
+    <div class="cta">
+      <a href="#">Sign Up for Training</a>
+    </div>
+  </div>
+
+  <div class="insta-feed">
+    <h2>Instagram Feed</h2>
+    <iframe src="https://snapwidget.com/embed/1053591" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:500px"></iframe>
+  </div>
+
+  <footer>
+    &copy; 2025 Shambhala. All rights reserved.
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
