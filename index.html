@@ -25,18 +25,20 @@ header h1 {
   font-family: 'Cinzel', serif;
   letter-spacing: 2px;
   animation: fadeIn 2s ease-out forwards;
+  color: #fff;
   background-color: #000;
   padding: 0.5rem 1rem;
   display: inline-block;
   border-radius: 10px;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
 }
 
 header p {
   margin-top: 0.5rem;
   font-size: 1.1rem;
   font-style: italic;
-  color: #ccc;
+  opacity: 0;
+  animation: fadeIn 2s 1s forwards;
 }
 
 .section {
@@ -58,14 +60,6 @@ header p {
   margin-bottom: 1rem;
   font-family: 'Cinzel', serif;
   color: #c00000;
-}
-
-.section p.stylish-black {
-  color: #000;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  font-style: italic;
-  text-align: justify;
 }
 
 .logo {
@@ -107,47 +101,44 @@ header p {
   color: #c00000;
 }
 
-.instructor {
-  background: #fff0f0;
-  padding: 3rem 1rem;
-  text-align: center;
-}
-
-.instructor h2 {
-  font-family: 'Cinzel', serif;
-  color: #c00000;
-}
-
-.instructor-profile {
-  max-width: 700px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.instructor-profile img {
-  max-width: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
-
-.instructor-profile h3 {
-  margin: 0.5rem 0 0.2rem;
-}
-
-.instructor-profile p {
-  font-style: italic;
-  color: #333;
-}
-
 footer {
   background: #fdfcf9;
   color: #888;
   text-align: center;
   padding: 1rem;
   margin-top: 3rem;
+}
+
+.instructors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 1rem;
+}
+
+.instructor-card {
+  background: #fdfcf9;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.instructor-card:hover {
+  transform: translateY(-5px);
+}
+
+.instructor-card img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.instructor-card h3 {
+  color: #c00000;
+  font-family: 'Cinzel', serif;
+  margin-bottom: 0.5rem;
 }
 
 @keyframes fadeIn {
@@ -164,32 +155,51 @@ footer {
   </header>  <div class="section">
     <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Logo" class="logo" />
     <h2>Welcome to the Movement</h2>
-    <p class="stylish-black">
-      Shambhala is not just a martial arts brand. It is a living path of discipline, spirituality, and transformation.
-      Born from the journey of one spirit, passion, and vision.
+    <p style="color: #000; font-style: italic; font-weight: 500;">
+      Shambhala is not just a martial arts brand. It is a living path of discipline, spirituality, and transformation. Born from the journey of one spirit, passion, and vision.
     </p>
   </div>  <div class="section">
     <h2>Join the Journey</h2>
-    <p class="stylish-black">
+    <p style="color: #000; font-style: italic; font-weight: 500;">
       Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
     </p>
     <div class="cta">
       <a href="#">Sign Up for Training</a>
     </div>
-  </div>  <div class="instructor">
-    <h2>Our Instructor</h2>
-    <div class="instructor-profile">
-      <img src="instructor.jpg" alt="Sensei Photo">
-      <h3>Shihan Dai Debabrata Chakraborty, Senpai Rohan Mukherjee</h3>
-      <p>Chief Instructor and Founder of Shambhala. With over 13 years of experience, Shihan Dai is a master of traditional Karate and spiritual discipline. His teachings blend ancient martial values with modern training methods. Senpai Rohan Mukherjee is an international World Champion in traditional Shotokan Karate</p>
-    </div>
+  </div>  <div class="section instructors">
+    <h2>Meet Our Instructors</h2><div class="instructor-card">
+  <img src="sensei-deb.jpg" alt="Sensei Ichiban" />
+  <h3>Shihan Dai Debabrata Chakraborty</h3>
+  <p>Head Instructor - 4th Dan Black Belt having an experience of more than 13 years. A master of traditional and sport Karate inculcating spiritual warrior discipline, guiding Shambhala’s journey from its roots.</p>
+</div>
+
+<div class="instructor-card">
+  <img src="sensei-rohan.jpg" alt="Sensei Akira" />
+  <h3>Sensei Rohan Mukherjee</h3>
+  <p>Expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy. Trains advanced disciples the art of Kenjutsu.</p>
+</div>
+
+<div class="instructor-card">
+  <img src="sensei-dev.jpg" alt="Sensei Dev" />
+  <h3>To be Announced soon</h3>
+  <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles, empowering students to balance strength and spirit.</p>
+</div>
+
+<div class="instructor-card">
+  <img src="sensei-aiko.jpg" alt="Sensei Aiko" />
+  <h3>Announcing soon</h3>
+  <p>Women's Self Defense & Wellness</p>
+</div>
+
   </div>  <div class="insta-feed">
-    <h2>Instagram Feed - @shambhala_official</h2>
+    <h2>Instagram Feed</h2>
+    <p>Follow us on <strong>@shambhala_official</strong></p>
     <iframe src="https://snapwidget.com/embed/1053591" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:500px"></iframe>
   </div>  <footer>
     &copy; 2025 Shambhala. All rights reserved.
   </footer>  <script>
     const sections = document.querySelectorAll('.section');
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
