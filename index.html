@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shambhala</title>
@@ -166,40 +167,42 @@ footer {
       Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
     </p>
     <div class="cta">
-      <a href="#">Sign Up for Training</a>
+      <a href="#formModal">Sign Up for Training</a>
     </div>
   </div>  <div class="section instructors">
-    <h2>Meet Our Instructors</h2><div class="instructor-card">
-  <img src="sensei-deb.jpg" alt="Sensei Ichiban" />
-  <h3>Shihan Dai Debabrata Chakraborty</h3>
-  <p>Head Instructor - 4th Dan Black Belt having an experience of more than 13 years. A master of traditional and sport Karate inculcating spiritual warrior discipline, guiding Shambhala’s journey from its roots.</p>
-</div>
-
-<div class="instructor-card">
-  <img src="sensei-rohan.jpg" alt="Sensei Akira" />
-  <h3>Senpai Rohan Mukherjee</h3>
-  <p>Traditonal Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy. Trains advanced disciples, the art of Kenjutsu.</p>
-</div>
-
-<div class="instructor-card">
-  <img src="sensei-dev.jpg" alt="Sensei Dev" />
-  <h3>Announcing soon</h3>
-  <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles, empowering students to balance strength and spirit.</p>
-</div>
-
-<div class="instructor-card">
-  <img src="sensei-aiko.jpg" alt="Sensei Aiko" />
-  <h3>Announcing soon</h3>
-  <p>Women's Self Defense & Wellness</p>
-</div>
-
+    <h2>Meet Our Instructors</h2>
+    <div class="instructor-card">
+      <img src="sensei-deb.jpg" alt="Sensei Ichiban" />
+      <h3>Shihan Dai Debabrata Chakraborty</h3>
+      <p>Head Instructor - 4th Dan Black Belt having an experience of more than 13 years. A master of traditional and sport Karate inculcating spiritual warrior discipline, guiding Shambhala’s journey from its roots.</p>
+    </div>
+    <div class="instructor-card">
+      <img src="sensei-rohan.jpg" alt="Sensei Akira" />
+      <h3>Senpai Rohan Mukherjee</h3>
+      <p>Traditonal Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy. Trains advanced disciples, the art of Kenjutsu.</p>
+    </div>
+    <div class="instructor-card">
+      <img src="sensei-dev.jpg" alt="Sensei Dev" />
+      <h3>Announcing soon</h3>
+      <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles, empowering students to balance strength and spirit.</p>
+    </div>
+    <div class="instructor-card">
+      <img src="sensei-aiko.jpg" alt="Sensei Aiko" />
+      <h3>Announcing soon</h3>
+      <p>Women's Self Defense & Wellness</p>
+    </div>
   </div>  <div class="insta-feed">
     <h2>Instagram Feed</h2>
     <p>Follow us on <strong>@shambhala_official</strong></p>
     <iframe src="https://snapwidget.com/embed/1053591" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:500px"></iframe>
   </div>  <footer>
     &copy; 2025 Shambhala. All rights reserved.
-  </footer>  <script>
+  </footer>  <!-- Modal for Google Form -->  <div id="formModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+    <div style="position:relative; width:90%; max-width:700px; height:90%; background:#fff; border-radius:12px; overflow:hidden;">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      <button onclick="closeForm()" style="position:absolute; top:10px; right:15px; font-size:1.5rem; background:none; border:none; cursor:pointer;">&times;</button>
+    </div>
+  </div>  <script>
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -211,5 +214,15 @@ footer {
     sections.forEach(section => {
       observer.observe(section);
     });
+
+    // Modal handling
+    document.querySelector('.cta a').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('formModal').style.display = 'flex';
+    });
+
+    function closeForm() {
+      document.getElementById('formModal').style.display = 'none';
+    }
   </script></body>
 </html>
