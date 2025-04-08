@@ -6,6 +6,10 @@
   <title>Shambhala</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -15,25 +19,33 @@
       scroll-behavior: smooth;
     }
 
-    /* Navbar */
+    /* NAVBAR */
     .navbar {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 999;
-      background: rgba(0, 0, 0, 0.95);
-      padding: 0.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      color: white;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar.hidden {
+      transform: translateY(-100%);
     }
 
     .navbar h1 {
       font-family: 'Cinzel', serif;
-      font-size: 1.6rem;
-      color: #fff;
+      font-size: 1.5rem;
       margin: 0;
-      text-shadow: 0 0 10px #c00000;
+      color: #fff;
+      letter-spacing: 1px;
     }
 
     .nav-links {
@@ -42,15 +54,51 @@
     }
 
     .nav-links a {
-      color: #fff;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
     }
 
     .nav-links a:hover {
       color: #c00000;
-      text-shadow: 0 0 6px #c00000;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .nav-links.open {
+        max-height: 300px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
     }
 
     header {
@@ -58,23 +106,20 @@
       color: #fff;
       padding: 4rem 2rem 2rem;
       text-align: center;
+      margin-top: 60px;
     }
 
     header h1 {
-      margin: 0;
       font-size: 2.8rem;
       font-family: 'Cinzel', serif;
       letter-spacing: 2px;
-      animation: fadeIn 2s ease-out forwards;
       background-color: #000;
       padding: 0.5rem 1rem;
-      display: inline-block;
       border-radius: 10px;
       text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
     }
 
     header p {
-      margin-top: 0.5rem;
       font-size: 1.1rem;
       font-style: italic;
       opacity: 0;
@@ -172,40 +217,6 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: 5% auto;
-      padding: 1rem;
-      border-radius: 10px;
-      width: 95%;
-      max-width: 700px;
-      height: 90vh;
-      overflow: auto;
-    }
-
-    .close-btn {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close-btn:hover {
-      color: #000;
-    }
-
     .contact-section {
       background-color: #fdfcf9;
       padding: 4rem 1rem;
@@ -217,11 +228,6 @@
       color: #c00000;
     }
 
-    .contact-section p {
-      font-size: 1rem;
-      color: #333;
-    }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -230,23 +236,26 @@
 </head>
 <body>
 
-  <!-- NavBar -->
-  <nav class="navbar">
+  <!-- NAVBAR -->
+  <div class="navbar" id="navbar">
     <h1>Shambhala</h1>
-    <div class="nav-links">
-      <a href="#welcome">Home</a>
-      <a href="#join">Join</a>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#about">About</a>
       <a href="#instructors">Instructors</a>
+      <a href="#join">Join</a>
       <a href="#contact">Contact</a>
     </div>
-  </nav>
+  </div>
 
-  <header id="welcome">
+  <header id="about">
     <h1>Shambhala</h1>
     <p>Where Spirit Meets Strength</p>
   </header>
 
-  <div class="section" id="join">
+  <div class="section">
     <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Logo" class="logo" />
     <h2>Welcome to the Movement</h2>
     <p style="color: #000; font-style: italic; font-weight: 500;">
@@ -254,7 +263,7 @@
     </p>
   </div>
 
-  <div class="section">
+  <div class="section" id="join">
     <h2>Join the Journey</h2>
     <p style="color: #000; font-style: italic; font-weight: 500;">
       Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
@@ -267,24 +276,14 @@
   <div class="section instructors" id="instructors">
     <h2>Meet Our Instructors</h2>
     <div class="instructor-card">
-      <img src="sensei-deb.jpg" alt="Sensei Debabrata" />
+      <img src="sensei-deb.jpg" alt="Sensei Ichiban" />
       <h3>Shihan Dai Debabrata Chakraborty</h3>
-      <p>4th Dan Black Belt with 13+ years of experience. A master of traditional and sport Karate guiding Shambhala’s journey from its roots.</p>
+      <p>Head Instructor - 4th Dan Black Belt with 13+ years of experience. A master of traditional and sport Karate guiding Shambhala’s journey from its roots.</p>
     </div>
     <div class="instructor-card">
-      <img src="sensei-rohan.jpg" alt="Sensei Rohan" />
+      <img src="sensei-rohan.jpg" alt="Sensei Akira" />
       <h3>Senpai Rohan Mukherjee</h3>
-      <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep martial philosophy.</p>
-    </div>
-    <div class="instructor-card">
-      <img src="sensei-dev.jpg" alt="Sensei Dev" />
-      <h3>Announcing soon</h3>
-      <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles to balance strength and spirit.</p>
-    </div>
-    <div class="instructor-card">
-      <img src="sensei-aiko.jpg" alt="Sensei Aiko" />
-      <h3>Announcing soon</h3>
-      <p>Women's Self Defense & Wellness</p>
+      <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy.</p>
     </div>
   </div>
 
@@ -308,7 +307,7 @@
   </footer>
 
   <!-- Modal -->
-  <div id="formModal" class="modal">
+  <div id="formModal" class="modal" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
     <div class="modal-content">
       <span class="close-btn" onclick="closeFormModal()">&times;</span>
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" 
@@ -321,14 +320,34 @@
   </div>
 
   <script>
+    // Navbar Scroll Show/Hide
+    let lastScrollY = window.scrollY;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY) {
+        navbar.classList.add('hidden');
+      } else {
+        navbar.classList.remove('hidden');
+      }
+      lastScrollY = window.scrollY;
+    });
+
+    // Toggle Nav
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Modal
     function openFormModal() {
       document.getElementById('formModal').style.display = 'block';
     }
-
     function closeFormModal() {
       document.getElementById('formModal').style.display = 'none';
     }
 
+    // Animate sections
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -337,10 +356,7 @@
         }
       });
     }, { threshold: 0.15 });
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
