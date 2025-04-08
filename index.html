@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,183 +12,192 @@
       background-size: cover;
       color: #111;
       scroll-behavior: smooth;
-    }
+    }header {
+  background: #000;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
 
-    header {
-      background: #000;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
+header h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+  animation: fadeIn 2s ease-out forwards;
+  background-color: #000;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 10px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 2px;
-      animation: fadeIn 2s ease-out forwards;
-      background-color: #000;
-      padding: 0.5rem 1rem;
-      display: inline-block;
-      border-radius: 10px;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-    }
+header p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeIn 2s 1s forwards;
+}
 
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      font-style: italic;
-      opacity: 0;
-      animation: fadeIn 2s 1s forwards;
-    }
+.section {
+  padding: 4rem 1rem;
+  max-width: 800px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
+}
 
-    .section {
-      padding: 4rem 1rem;
-      max-width: 800px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease-out;
-    }
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: 'Cinzel', serif;
+  color: #c00000;
+}
 
-    .section h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-      font-family: 'Cinzel', serif;
-      color: #c00000;
-    }
+.logo {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 300px;
+  filter: drop-shadow(0 0 10px #c00000);
+}
 
-    .logo {
-      display: block;
-      margin: 1.5rem auto;
-      max-width: 300px;
-      filter: drop-shadow(0 0 10px #c00000);
-    }
+.cta {
+  text-align: center;
+  margin-top: 2rem;
+}
 
-    .cta {
-      text-align: center;
-      margin-top: 2rem;
-    }
+.cta a {
+  background: #c00000;
+  color: #fff;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  box-shadow: 0 0 8px rgba(192,0,0,0.4);
+}
 
-    .cta a {
-      background: #c00000;
-      color: #fff;
-      padding: 0.8rem 1.8rem;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-      box-shadow: 0 0 8px rgba(192,0,0,0.4);
-    }
+.cta a:hover {
+  background: #a80000;
+}
 
-    .cta a:hover {
-      background: #a80000;
-    }
+footer {
+  background: #fdfcf9;
+  color: #888;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+}
 
-    footer {
-      background: #fdfcf9;
-      color: #888;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
+.instructors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 1rem;
+}
 
-    .instructors {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      padding: 4rem 1rem;
-    }
+.instructor-card {
+  background: #fdfcf9;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
 
-    .instructor-card {
-      background: #fdfcf9;
-      border-radius: 12px;
-      max-width: 600px;
-      width: 90%;
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
+.instructor-card:hover {
+  transform: translateY(-5px);
+}
 
-    .instructor-card:hover {
-      transform: translateY(-5px);
-    }
+.instructor-card img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
 
-    .instructor-card img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
+.instructor-card h3 {
+  color: #c00000;
+  font-family: 'Cinzel', serif;
+  margin-bottom: 0.5rem;
+}
 
-    .instructor-card h3 {
-      color: #c00000;
-      font-family: 'Cinzel', serif;
-      margin-bottom: 0.5rem;
-    }
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.8);
-    }
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 95%;
+  max-width: 700px;
+  height: 90vh;
+  overflow: auto;
+}
 
-    .modal-content {
-      background-color: #fff;
-      margin: 5% auto;
-      padding: 1rem;
-      border-radius: 10px;
-      width: 95%;
-      max-width: 700px;
-      height: 90vh;
-      overflow: auto;
-    }
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .close-btn {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.close-btn:hover {
+  color: #000;
+}
 
-    .close-btn:hover {
-      color: #000;
-    }
+.contact-section {
+  background-color: #fdfcf9;
+  padding: 4rem 1rem;
+  text-align: center;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.contact-section h2 {
+  font-family: 'Cinzel', serif;
+  color: #c00000;
+}
+
+.contact-section p {
+  font-size: 1rem;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
   </style>
 </head>
-<body>
-
-  <header>
+<body>  <header>
     <h1>Shambhala</h1>
     <p>Where Spirit Meets Strength</p>
-  </header>
-
-  <div class="section">
+  </header>  <div class="section">
     <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Logo" class="logo" />
     <h2>Welcome to the Movement</h2>
     <p style="color: #000; font-style: italic; font-weight: 500;">
       Shambhala is not just a martial arts brand. It is a living path of discipline, spirituality, and transformation. Born from the journey of one spirit, passion, and vision.
     </p>
-  </div>
-
-  <div class="section">
+  </div>  <div class="section">
     <h2>Join the Journey</h2>
     <p style="color: #000; font-style: italic; font-weight: 500;">
       Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
@@ -197,37 +205,32 @@
     <div class="cta">
       <a href="#" onclick="openFormModal()">Sign Up for Training</a>
     </div>
-  </div>
-
-  <div class="section instructors">
+  </div>  <div class="section instructors">
     <h2>Meet Our Instructors</h2>
-
     <div class="instructor-card">
       <img src="sensei-deb.jpg" alt="Sensei Ichiban" />
       <h3>Shihan Dai Debabrata Chakraborty</h3>
       <p>Head Instructor - 4th Dan Black Belt with 13+ years of experience. A master of traditional and sport Karate guiding Shambhala’s journey from its roots.</p>
     </div>
-
     <div class="instructor-card">
       <img src="sensei-rohan.jpg" alt="Sensei Akira" />
       <h3>Senpai Rohan Mukherjee</h3>
       <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy.</p>
     </div>
-
     <div class="instructor-card">
       <img src="sensei-dev.jpg" alt="Sensei Dev" />
       <h3>Announcing soon</h3>
       <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles to balance strength and spirit.</p>
     </div>
-
     <div class="instructor-card">
       <img src="sensei-aiko.jpg" alt="Sensei Aiko" />
       <h3>Announcing soon</h3>
       <p>Women's Self Defense & Wellness</p>
     </div>
-  </div>
-
-  <footer>
+  </div>  <div class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:shambhalainc2025@gmail.com" style="color: #c00000; text-decoration: none; font-weight: bold;">shambhalainc2025@gmail.com</a></p>
+  </div>  <footer>
     <p style="font-size: 1rem;">
       Follow us on 
       <a href="https://www.instagram.com/shambhala_official" 
@@ -239,10 +242,7 @@
       </a>
     </p>
     <p>&copy; 2025 Shambhala. All rights reserved.</p>
-  </footer>
-
-  <!-- Modal -->
-  <div id="formModal" class="modal">
+  </footer>  <!-- Modal -->  <div id="formModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeFormModal()">&times;</span>
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" 
@@ -252,9 +252,7 @@
               marginheight="0" 
               marginwidth="0">Loading…</iframe>
     </div>
-  </div>
-
-  <script>
+  </div>  <script>
     function openFormModal() {
       document.getElementById('formModal').style.display = 'block';
     }
@@ -269,7 +267,7 @@
         if (formUrl && formUrl.includes("formResponse")) {
           setTimeout(() => {
             closeFormModal();
-            window.location.href = "thank-you.html"; // Change to your custom thank you page
+            window.location.href = "thank-you.html";
           }, 2000);
         }
       }
@@ -287,6 +285,5 @@
     sections.forEach(section => {
       observer.observe(section);
     });
-  </script>
-</body>
+  </script></body>
 </html>
