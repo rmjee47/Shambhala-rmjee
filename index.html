@@ -2,14 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shambhala</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -19,107 +15,71 @@
       scroll-behavior: smooth;
     }
 
-    /* NAVBAR */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 999;
+    /* Navbar */
+    nav {
+      background: #000;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background-color: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(10px);
-      color: white;
-      transition: transform 0.3s ease-in-out;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .navbar.hidden {
-      transform: translateY(-100%);
-    }
-
-    .navbar h1 {
+    nav .logo-text {
       font-family: 'Cinzel', serif;
-      font-size: 1.5rem;
-      margin: 0;
+      font-size: 1.8rem;
       color: #fff;
-      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .nav-links {
+    nav .logo-text span {
+      font-size: 1.4rem;
+      color: #c00000;
+      font-family: 'Cinzel', serif;
+    }
+
+    nav ul {
+      list-style: none;
       display: flex;
       gap: 1.5rem;
+      margin: 0;
+      padding: 0;
     }
 
-    .nav-links a {
+    nav ul li a {
+      color: #fff;
       text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: color 0.3s;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
     }
 
-    .nav-links a:hover {
+    nav ul li a:hover {
       color: #c00000;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-      border-radius: 2px;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        align-items: center;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-      }
-
-      .nav-links.open {
-        max-height: 300px;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
     }
 
     header {
       background: #000;
       color: #fff;
-      padding: 4rem 2rem 2rem;
+      padding: 2rem;
       text-align: center;
-      margin-top: 60px;
     }
 
     header h1 {
+      margin: 0;
       font-size: 2.8rem;
       font-family: 'Cinzel', serif;
       letter-spacing: 2px;
-      background-color: #000;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
+      animation: fadeIn 2s ease-out forwards;
       text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
     }
 
     header p {
+      margin-top: 0.5rem;
       font-size: 1.1rem;
       font-style: italic;
       opacity: 0;
@@ -174,14 +134,6 @@
       background: #a80000;
     }
 
-    footer {
-      background: #fdfcf9;
-      color: #888;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-
     .instructors {
       display: flex;
       flex-direction: column;
@@ -217,6 +169,38 @@
       margin-bottom: 0.5rem;
     }
 
+    /* FAQ */
+    .faq-section {
+      padding: 4rem 1rem;
+      background: #fdfcf9;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1rem;
+    }
+
+    .faq-question {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #c00000;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      font-size: 1rem;
+      color: #333;
+      margin-top: 0.5rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+
     .contact-section {
       background-color: #fdfcf9;
       padding: 4rem 1rem;
@@ -228,6 +212,14 @@
       color: #c00000;
     }
 
+    footer {
+      background: #fdfcf9;
+      color: #888;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -236,26 +228,25 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <div class="navbar" id="navbar">
-    <h1>Shambhala</h1>
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span><span></span><span></span>
+  <nav>
+    <div class="logo-text">
+      Shambhala <span>空手</span>
     </div>
-    <div class="nav-links" id="nav-links">
-      <a href="#about">About</a>
-      <a href="#instructors">Instructors</a>
-      <a href="#join">Join</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
+    <ul>
+      <li><a href="#welcome">Home</a></li>
+      <li><a href="#join">Join</a></li>
+      <li><a href="#instructors">Instructors</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <header id="about">
+  <header>
     <h1>Shambhala</h1>
     <p>Where Spirit Meets Strength</p>
   </header>
 
-  <div class="section">
+  <div id="welcome" class="section">
     <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Logo" class="logo" />
     <h2>Welcome to the Movement</h2>
     <p style="color: #000; font-style: italic; font-weight: 500;">
@@ -263,7 +254,7 @@
     </p>
   </div>
 
-  <div class="section" id="join">
+  <div id="join" class="section">
     <h2>Join the Journey</h2>
     <p style="color: #000; font-style: italic; font-weight: 500;">
       Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
@@ -273,21 +264,43 @@
     </div>
   </div>
 
-  <div class="section instructors" id="instructors">
+  <div id="instructors" class="section instructors">
     <h2>Meet Our Instructors</h2>
     <div class="instructor-card">
-      <img src="sensei-deb.jpg" alt="Sensei Ichiban" />
+      <img src="sensei-deb.jpg" alt="Sensei Debabrata" />
       <h3>Shihan Dai Debabrata Chakraborty</h3>
       <p>Head Instructor - 4th Dan Black Belt with 13+ years of experience. A master of traditional and sport Karate guiding Shambhala’s journey from its roots.</p>
     </div>
     <div class="instructor-card">
-      <img src="sensei-rohan.jpg" alt="Sensei Akira" />
+      <img src="sensei-rohan.jpg" alt="Sensei Rohan" />
       <h3>Senpai Rohan Mukherjee</h3>
       <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy.</p>
     </div>
+    <div class="instructor-card">
+      <img src="sensei-dev.jpg" alt="Sensei Dev" />
+      <h3>Announcing soon</h3>
+      <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles to balance strength and spirit.</p>
+    </div>
+    <div class="instructor-card">
+      <img src="sensei-aiko.jpg" alt="Sensei Aiko" />
+      <h3>Announcing soon</h3>
+      <p>Women's Self Defense & Wellness</p>
+    </div>
   </div>
 
-  <div class="contact-section" id="contact">
+  <div id="faq" class="faq-section section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-question">Is there an age limit to join Shambhala?</div>
+      <div class="faq-answer">We welcome students starting from 6 years of age and beyond — there is no upper age limit! Anyone with the spirit to learn is encouraged to join.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Do I need prior experience in Karate?</div>
+      <div class="faq-answer">Not at all! We train beginners as well as experienced martial artists. Our instructors tailor guidance according to each student’s level.</div>
+    </div>
+  </div>
+
+  <div id="contact" class="contact-section">
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:shambhalainc2025@gmail.com" style="color: #c00000; text-decoration: none; font-weight: bold;">shambhalainc2025@gmail.com</a></p>
   </div>
@@ -307,47 +320,23 @@
   </footer>
 
   <!-- Modal -->
-  <div id="formModal" class="modal" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeFormModal()">&times;</span>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" 
-              width="100%" 
-              height="100%" 
-              frameborder="0" 
-              marginheight="0" 
-              marginwidth="0">Loading…</iframe>
+  <div id="formModal" class="modal" style="display: none;">
+    <div class="modal-content" style="background: #fff; border-radius: 10px; padding: 1rem;">
+      <span class="close-btn" onclick="closeFormModal()" style="float:right; cursor:pointer; font-size:1.5rem;">&times;</span>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true"
+              width="100%" height="500px" frameborder="0">Loading…</iframe>
     </div>
   </div>
 
   <script>
-    // Navbar Scroll Show/Hide
-    let lastScrollY = window.scrollY;
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > lastScrollY) {
-        navbar.classList.add('hidden');
-      } else {
-        navbar.classList.remove('hidden');
-      }
-      lastScrollY = window.scrollY;
-    });
-
-    // Toggle Nav
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-
-    // Modal
     function openFormModal() {
       document.getElementById('formModal').style.display = 'block';
     }
+
     function closeFormModal() {
       document.getElementById('formModal').style.display = 'none';
     }
 
-    // Animate sections
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -356,7 +345,16 @@
         }
       });
     }, { threshold: 0.15 });
+
     sections.forEach(section => observer.observe(section));
+
+    // FAQ accordion toggle
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        item.classList.toggle('active');
+      });
+    });
   </script>
 </body>
 </html>
