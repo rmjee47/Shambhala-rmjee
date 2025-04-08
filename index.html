@@ -134,7 +134,6 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -184,135 +183,39 @@
       color: #333;
     }
 
+    details {
+      background: #fff;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    summary {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #c00000;
+      outline: none;
+    }
+
+    details[open] summary {
+      margin-bottom: 0.5rem;
+    }
+
+    details p {
+      margin: 0.5rem 0 0;
+      color: #333;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* Navbar Styles */
-    nav {
-      background-color: #111;
-      padding: 1rem;
-      position: relative;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: space-between;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      padding: 1rem;
-      font-weight: bold;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
-
-    nav a:hover {
-      color: #c00000;
-    }
-
-    /* Hamburger Menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .hamburger div {
-      width: 30px;
-      height: 4px;
-      background-color: white;
-      margin: 5px;
-      transition: 0.3s;
-    }
-
-    .menu {
-      display: flex;
-      flex-direction: column;
-      background-color: #111;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      display: none;
-    }
-
-    .menu.show {
-      display: flex;
-    }
-
-    .menu a {
-      padding: 1rem;
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-      text-align: center;
-    }
-
-    .menu a:hover {
-      background-color: #c00000;
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-
-      nav ul {
-        display: none;
-      }
-    }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav>
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Instructors</a></li>
-      <li><a href="#">FAQ</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-    <div class="menu">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Instructors</a>
-      <a href="#">FAQ</a>
-      <a href="#">Contact</a>
-    </div>
-  </nav>
-
-  <!-- FAQ Section -->
-  <div class="section" id="faq-section">
-    <h2>Frequently Asked Questions</h2>
-    <div>
-      <h3>What age group can join Shambhala?</h3>
-      <p>We welcome all age groups from 6 years and above.</p>
-    </div>
-    <div>
-      <h3>Do you offer online training?</h3>
-      <p>Currently working on it, but, we intend to offer virtual training sessions for students worldwide in the near future.</p>
-    </div>
-    <div>
-      <h3>What is the pricing for classes?</h3>
-      <p>Please contact us for detailed pricing.</p>
-    </div>
-  </div>
 
   <header>
     <h1>Shambhala</h1>
@@ -323,14 +226,14 @@
     <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Logo" class="logo" />
     <h2>Welcome to the Movement</h2>
     <p style="color: #000; font-style: italic; font-weight: 500;">
-      Shambhala is not just a martial arts brand. It is a living path of discipline, spirituality, and transformation. Born from the journey of one spirit, passion, and vision. It aims to train students in Shotokan Karate primarily, alongside other Martial Art forms. 
+      Shambhala is not just a martial arts brand. It is a living path of discipline, spirituality, and transformation. Born from the journey of one spirit, passion, and vision.
     </p>
   </div>
 
   <div class="section">
     <h2>Join the Journey</h2>
     <p style="color: #000; font-style: italic; font-weight: 500;">
-      Whether you're a beginner, a seeker of martial wisdom, or a black belt, Shambhala welcomes you with open arms. Learn Karate, explore its roots, and walk the warrior path with purpose.
+      Whether you're a beginner, a seeker of martial wisdom, or a future black belt, Shambhala welcomes you. Learn Karate, explore its roots, and walk the warrior path with purpose.
     </p>
     <div class="cta">
       <a href="#" onclick="openFormModal()">Sign Up for Training</a>
@@ -347,7 +250,7 @@
     <div class="instructor-card">
       <img src="sensei-rohan.jpg" alt="Sensei Akira" />
       <h3>Senpai Rohan Mukherjee</h3>
-      <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial art philosophy.</p>
+      <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy.</p>
     </div>
     <div class="instructor-card">
       <img src="sensei-dev.jpg" alt="Sensei Dev" />
@@ -359,6 +262,22 @@
       <h3>Announcing soon</h3>
       <p>Women's Self Defense & Wellness</p>
     </div>
+  </div>
+
+  <div class="section">
+    <h2>FAQs</h2>
+    <details>
+      <summary><strong>Who can join Shambhala? Is there an age limit?</strong></summary>
+      <p>Shambhala welcomes everyone aged 6 and above. Whether you're a child, adult, or senior, you can begin your martial journey with us.</p>
+    </details>
+    <details>
+      <summary><strong>Do I need any prior experience in martial arts?</strong></summary>
+      <p>No prior experience is needed. We offer programs for all levels, from beginners to advanced practitioners.</p>
+    </details>
+    <details>
+      <summary><strong>What style of Karate is taught at Shambhala?</strong></summary>
+      <p>We teach traditional Shotokan Karate with emphasis on both sport and philosophical aspects of martial training.</p>
+    </details>
   </div>
 
   <div class="contact-section">
@@ -380,7 +299,6 @@
     <p>&copy; 2025 Shambhala. All rights reserved.</p>
   </footer>
 
-  <!-- Modal -->
   <div id="formModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeFormModal()">&times;</span>
@@ -402,9 +320,17 @@
       document.getElementById('formModal').style.display = 'none';
     }
 
-    function toggleMenu() {
-      document.querySelector('.menu').classList.toggle('show');
-    }
+    window.addEventListener('message', function(event) {
+      if (event.origin.includes("google.com")) {
+        const formUrl = event.data;
+        if (formUrl && formUrl.includes("formResponse")) {
+          setTimeout(() => {
+            closeFormModal();
+            window.location.href = "thank-you.html";
+          }, 2000);
+        }
+      }
+    });
 
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
