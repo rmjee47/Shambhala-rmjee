@@ -15,10 +15,48 @@
       scroll-behavior: smooth;
     }
 
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.95);
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    .navbar h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      color: #fff;
+      margin: 0;
+      text-shadow: 0 0 10px #c00000;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #c00000;
+      text-shadow: 0 0 6px #c00000;
+    }
+
     header {
       background: #000;
       color: #fff;
-      padding: 2rem;
+      padding: 4rem 2rem 2rem;
       text-align: center;
     }
 
@@ -134,6 +172,7 @@
       margin-bottom: 0.5rem;
     }
 
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -183,32 +222,6 @@
       color: #333;
     }
 
-    details {
-      background: #fff;
-      border-radius: 6px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    summary {
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: #c00000;
-      outline: none;
-    }
-
-    details[open] summary {
-      margin-bottom: 0.5rem;
-    }
-
-    details p {
-      margin: 0.5rem 0 0;
-      color: #333;
-    }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -217,12 +230,23 @@
 </head>
 <body>
 
-  <header>
+  <!-- NavBar -->
+  <nav class="navbar">
+    <h1>Shambhala</h1>
+    <div class="nav-links">
+      <a href="#welcome">Home</a>
+      <a href="#join">Join</a>
+      <a href="#instructors">Instructors</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header id="welcome">
     <h1>Shambhala</h1>
     <p>Where Spirit Meets Strength</p>
   </header>
 
-  <div class="section">
+  <div class="section" id="join">
     <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Logo" class="logo" />
     <h2>Welcome to the Movement</h2>
     <p style="color: #000; font-style: italic; font-weight: 500;">
@@ -240,17 +264,17 @@
     </div>
   </div>
 
-  <div class="section instructors">
+  <div class="section instructors" id="instructors">
     <h2>Meet Our Instructors</h2>
     <div class="instructor-card">
-      <img src="sensei-deb.jpg" alt="Sensei Ichiban" />
+      <img src="sensei-deb.jpg" alt="Sensei Debabrata" />
       <h3>Shihan Dai Debabrata Chakraborty</h3>
-      <p>Head Instructor - 4th Dan Black Belt with 13+ years of experience. A master of traditional and sport Karate guiding Shambhala’s journey from its roots.</p>
+      <p>4th Dan Black Belt with 13+ years of experience. A master of traditional and sport Karate guiding Shambhala’s journey from its roots.</p>
     </div>
     <div class="instructor-card">
-      <img src="sensei-rohan.jpg" alt="Sensei Akira" />
+      <img src="sensei-rohan.jpg" alt="Sensei Rohan" />
       <h3>Senpai Rohan Mukherjee</h3>
-      <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy.</p>
+      <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep martial philosophy.</p>
     </div>
     <div class="instructor-card">
       <img src="sensei-dev.jpg" alt="Sensei Dev" />
@@ -264,23 +288,7 @@
     </div>
   </div>
 
-  <div class="section">
-    <h2>FAQs</h2>
-    <details>
-      <summary><strong>Who can join Shambhala? Is there an age limit?</strong></summary>
-      <p>Shambhala welcomes everyone aged 6 and above. Whether you're a child, adult, or senior, you can begin your martial journey with us.</p>
-    </details>
-    <details>
-      <summary><strong>Do I need any prior experience in martial arts?</strong></summary>
-      <p>No prior experience is needed. We offer programs for all levels, from beginners to advanced practitioners.</p>
-    </details>
-    <details>
-      <summary><strong>What style of Karate is taught at Shambhala?</strong></summary>
-      <p>We teach traditional Shotokan Karate with emphasis on both sport and philosophical aspects of martial training.</p>
-    </details>
-  </div>
-
-  <div class="contact-section">
+  <div class="contact-section" id="contact">
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:shambhalainc2025@gmail.com" style="color: #c00000; text-decoration: none; font-weight: bold;">shambhalainc2025@gmail.com</a></p>
   </div>
@@ -299,6 +307,7 @@
     <p>&copy; 2025 Shambhala. All rights reserved.</p>
   </footer>
 
+  <!-- Modal -->
   <div id="formModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeFormModal()">&times;</span>
@@ -319,18 +328,6 @@
     function closeFormModal() {
       document.getElementById('formModal').style.display = 'none';
     }
-
-    window.addEventListener('message', function(event) {
-      if (event.origin.includes("google.com")) {
-        const formUrl = event.data;
-        if (formUrl && formUrl.includes("formResponse")) {
-          setTimeout(() => {
-            closeFormModal();
-            window.location.href = "thank-you.html";
-          }, 2000);
-        }
-      }
-    });
 
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
