@@ -4,18 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shambhala</title>
-
+  
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
 
-  <!-- SEO / OG -->
+  <!-- SEO -->
   <meta name="description" content="Shambhala – Where Spirit Meets Strength. Shotokan Karate training, discipline, and martial philosophy for all ages. Join the warrior journey today.">
+  <meta name="keywords" content="Shambhala, Karate, Shotokan, Martial Arts, Dojo, Self Defense, India">
+  <meta name="author" content="Shambhala Official">
+
+  <!-- Open Graph for social sharing -->
   <meta property="og:title" content="Shambhala – Where Spirit Meets Strength">
+  <meta property="og:description" content="Traditional Shotokan Karate dojo. Train in discipline, strength, and spirit.">
   <meta property="og:image" content="images/IMG-20250405-WA0028.jpg">
+  <meta property="og:url" content="https://shambhala.com">
   <meta name="twitter:card" content="summary_large_image">
 
   <style>
-    /* --- Your existing styles --- */
+    /* === Existing Styles === */
     body { margin:0; font-family:'Segoe UI', sans-serif; background:url('images/karate-vedic-texture.png') repeat; background-size:cover; color:#111; scroll-behavior:smooth; line-height:1.6; }
     header { background: linear-gradient(to bottom,#000,#111); color:#fff; padding:2.5rem 1rem; text-align:center; }
     header h1 { margin:0; font-size:2.8rem; font-family:'Cinzel', serif; letter-spacing:2px; animation:fadeIn 2s ease-out forwards; background-color:#000; padding:0.5rem 1.2rem; display:inline-block; border-radius:10px; text-shadow:0 0 15px rgba(255,255,255,0.7); }
@@ -40,19 +46,15 @@
     .achievements ul { list-style:none; padding:0; margin:0; }
     .achievements li { margin:0.8rem 0; font-size:1.1rem; }
 
-    /* Examination Updates */
+    /* === Examination Updates Section === */
     .updates { margin:3rem auto; padding:2rem; max-width:800px; background:#fdfdfd; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.1); }
     .updates h2 { color:#c00000; text-align:center; margin-bottom:1rem; }
     .updates ul { list-style:none; padding:0; }
     .updates ul li { margin:0.7rem 0; padding:0.8rem; background:#fff3f3; border-radius:8px; box-shadow:0 0 6px rgba(192,0,0,0.15); }
     .updates a { color:#c00000; font-weight:bold; text-decoration:none; }
     .updates a:hover { text-decoration:underline; }
-    #uploadFormContainer { display:none; margin-top:1rem; }
-    #uploadForm input, #uploadForm button { padding:0.6rem; border-radius:6px; border:1px solid #ddd; }
-    #uploadForm button { background:#c00000; color:#fff; border:none; cursor:pointer; font-weight:bold; transition: background 0.3s ease; }
-    #uploadForm button:hover { background:#a80000; }
-    #adminLoginBtn { padding:0.8rem 1.5rem; border:none; border-radius:8px; cursor:pointer; background:#c00000; color:#fff; font-weight:bold; transition: background 0.3s ease; }
-    #adminLoginBtn:hover { background:#a80000; }
+
+    @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
   </style>
 </head>
 <body>
@@ -62,35 +64,13 @@
   <p>Where Spirit Meets Strength</p>
 </header>
 
-<!-- Existing Sections Here (Welcome, Join Journey, Instructors, Achievements, etc.) -->
+<!-- Existing Sections (Welcome, Join Journey, Instructors, Achievements, FAQs) -->
 
 <!-- Examination Updates Section -->
 <div class="section updates">
   <h2>Examination Updates</h2>
-
-  <!-- Admin Upload -->
-  <div id="adminUploadSection">
-    <button id="adminLoginBtn">Admin Login to Upload PDFs</button>
-    <div id="uploadFormContainer">
-      <form id="uploadForm" enctype="multipart/form-data" method="POST" action="/upload">
-        <label for="pdfUpload">Upload New Exam PDF:</label>
-        <input type="file" id="pdfUpload" name="pdfUpload" accept="application/pdf" required>
-        <button type="submit">Upload</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- PDF List -->
-  <ul>
-    <% if (pdfs.length === 0) { %>
-      <li>No updates available yet.</li>
-    <% } %>
-    <% pdfs.forEach(pdf => { %>
-      <li>
-        <a href="/pdfs/<%= pdf %>" target="_blank"><%= pdf %></a> |
-        <a href="/pdfs/<%= pdf %>" download>Download</a>
-      </li>
-    <% }); %>
+  <ul id="pdfList">
+    <!-- PDF list will be populated by JS -->
   </ul>
 </div>
 
@@ -101,28 +81,41 @@
 </div>
 
 <footer>
+  <p style="font-size:1rem;">Follow us on Instagram
+    <a href="https://www.instagram.com/shambhala_official" target="_blank" style="color: #c00000; font-weight: bold; text-decoration: none; margin-left: 4px;"
+       onmouseover="this.style.textDecoration='underline'; this.style.color='#a80000';"
+       onmouseout="this.style.textDecoration='none'; this.style.color='#c00000';">@shambhala_official</a>
+  </p>
   <p>&copy; 2025 Shambhala. All rights reserved.</p>
 </footer>
 
 <script>
-  // Admin login for PDF upload
-  document.getElementById('adminLoginBtn').addEventListener('click', function() {
-    const password = prompt("Enter admin password to upload PDFs:");
-    if(password === "ShambhalaAdmin2025") { // change password as needed
-      document.getElementById('uploadFormContainer').style.display = 'block';
-      this.style.display = 'none';
-      alert("Welcome, Admin! You can now upload PDFs.");
-    } else {
-      alert("Incorrect password. Access denied.");
-    }
-  });
-
   // Section fade-in observer
   const sections = document.querySelectorAll('.section');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
   }, { threshold: 0.15 });
   sections.forEach(section => observer.observe(section));
+
+  // === Static PDF List for GitHub Pages ===
+  const pdfs = [
+    "exam-update1.pdf",
+    "exam-update2.pdf"
+    // Add more PDF filenames here
+  ];
+
+  const pdfList = document.getElementById('pdfList');
+  if(pdfs.length === 0){
+    pdfList.innerHTML = '<li>No updates available yet.</li>';
+  } else {
+    pdfs.forEach(pdf => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="pdfs/${pdf}" target="_blank">${pdf}</a> |
+                      <a href="pdfs/${pdf}" download>Download</a>`;
+      pdfList.appendChild(li);
+    });
+  }
 </script>
+
 </body>
 </html>
