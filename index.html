@@ -13,7 +13,7 @@
   <meta name="keywords" content="Shambhala, Karate, Shotokan, Martial Arts, Dojo, Self Defense, India">
   <meta name="author" content="Shambhala Official">
 
-  <!-- Open Graph for social sharing -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Shambhala – Where Spirit Meets Strength">
   <meta property="og:description" content="Traditional Shotokan Karate dojo. Train in discipline, strength, and spirit.">
   <meta property="og:image" content="images/IMG-20250405-WA0028.jpg">
@@ -55,6 +55,7 @@
       opacity:0;
       animation:fadeIn 2s 1s forwards;
     }
+
     .section {
       padding:4rem 1.2rem;
       max-width:850px;
@@ -95,13 +96,15 @@
     .instructor-card:hover { transform:translateY(-5px); }
     .instructor-card img { max-width:100%; border-radius:10px; margin-bottom:1rem; }
     .instructor-card h3 { color:#c00000; font-family:'Cinzel', serif; margin-bottom:0.5rem; }
+
+    .achievements { background:#fff; padding:3rem 1rem; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); margin-top:2rem; }
+    .achievements ul { list-style:none; padding:0; margin:0; }
+    .achievements li { margin:0.8rem 0; font-size:1.1rem; }
+
     details { background:#fff; border-radius:6px; padding:1rem; margin-bottom:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); cursor:pointer; transition:all 0.3s ease; }
     summary { font-weight:bold; font-size:1.1rem; color:#c00000; outline:none; }
     details[open] summary { margin-bottom:0.5rem; }
     details p { margin:0.5rem 0 0; color:#333; }
-    .achievements { background:#fff; padding:3rem 1rem; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); margin-top:2rem; }
-    .achievements ul { list-style:none; padding:0; margin:0; }
-    .achievements li { margin:0.8rem 0; font-size:1.1rem; }
 
     /* === Examination Updates Section === */
     .updates { margin:3rem auto; padding:2rem; max-width:800px; background:#fdfdfd; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.1); }
@@ -130,7 +133,7 @@
   </p>
 </div>
 
-<!-- Join the Journey Section -->
+<!-- Join Section -->
 <div class="section">
   <h2>Join the Journey</h2>
   <p style="color: #000; font-style: italic; font-weight: 500;">
@@ -142,7 +145,7 @@
   </div>
 </div>
 
-<!-- Instructors Section -->
+<!-- Instructors -->
 <div class="section instructors">
   <h2>Meet Our Instructors</h2>
   <div class="instructor-card">
@@ -167,7 +170,7 @@
   </div>
 </div>
 
-<!-- Achievements Section -->
+<!-- Achievements -->
 <div class="section achievements">
   <h2>Our Achievements</h2>
   <ul>
@@ -178,13 +181,17 @@
   </ul>
 </div>
 
-<!-- === Examination Updates Section (New) === -->
+<!-- Examination Updates -->
 <div class="section updates">
   <h2>Examination Updates</h2>
-  <ul id="pdfList"></ul>
+  <ul id="pdfList">
+    <!-- Example items -->
+    <li><a href="uploads/sample1.pdf" target="_blank">Exam Schedule April 2025</a></li>
+    <li><a href="uploads/sample2.pdf" target="_blank">Belt Promotion Details 2025</a></li>
+  </ul>
 </div>
 
-<!-- FAQs Section -->
+<!-- FAQs -->
 <div class="section">
   <h2>FAQs</h2>
   <details>
@@ -201,7 +208,7 @@
   </details>
 </div>
 
-<!-- Contact Section -->
+<!-- Contact -->
 <div class="contact-section" id="contact" style="text-align:center;">
   <h2>Contact Us</h2>
   <p style="font-size:1rem;">
@@ -226,6 +233,27 @@
   <p>&copy; 2025 Shambhala. All rights reserved.</p>
 </footer>
 
-<!-- Modal Form -->
+<!-- Modal -->
 <div id="formModal" class="modal" style="display:none;">
   <div class="modal-content">
+    <span class="close-btn" onclick="closeFormModal()">&times;</span>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" 
+            width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+</div>
+
+<script>
+  function openFormModal(){ document.getElementById('formModal').style.display='block'; }
+  function closeFormModal(){ document.getElementById('formModal').style.display='none'; }
+
+  const sections=document.querySelectorAll('.section');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, {threshold:0.15});
+  sections.forEach(section=>observer.observe(section));
+</script>
+
+</body>
+</html>
