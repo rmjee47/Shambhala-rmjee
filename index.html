@@ -21,20 +21,77 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <style>
-    /* === Existing Styles === */
-    body { margin:0; font-family:'Segoe UI', sans-serif; background:url('images/karate-vedic-texture.png') repeat; background-size:cover; color:#111; scroll-behavior:smooth; line-height:1.6; }
-    header { background: linear-gradient(to bottom,#000,#111); color:#fff; padding:2.5rem 1rem; text-align:center; }
-    header h1 { margin:0; font-size:2.8rem; font-family:'Cinzel', serif; letter-spacing:2px; animation:fadeIn 2s ease-out forwards; background-color:#000; padding:0.5rem 1.2rem; display:inline-block; border-radius:10px; text-shadow:0 0 15px rgba(255,255,255,0.7); }
-    header p { margin-top:0.7rem; font-size:1.2rem; font-style:italic; opacity:0; animation:fadeIn 2s 1s forwards; }
-    .section { padding:4rem 1.2rem; max-width:850px; margin:auto; opacity:0; transform:translateY(40px); transition: all 1s ease-out; }
+    body {
+      margin:0;
+      font-family:'Segoe UI', sans-serif;
+      background:url('images/karate-vedic-texture.png') repeat;
+      background-size:cover;
+      color:#111;
+      scroll-behavior:smooth;
+      line-height:1.6;
+    }
+    header {
+      background: linear-gradient(to bottom,#000,#111);
+      color:#fff;
+      padding:2.5rem 1rem;
+      text-align:center;
+    }
+    header h1 {
+      margin:0;
+      font-size:2.8rem;
+      font-family:'Cinzel', serif;
+      letter-spacing:2px;
+      animation:fadeIn 2s ease-out forwards;
+      background-color:#000;
+      padding:0.5rem 1.2rem;
+      display:inline-block;
+      border-radius:10px;
+      text-shadow:0 0 15px rgba(255,255,255,0.7);
+    }
+    header p {
+      margin-top:0.7rem;
+      font-size:1.2rem;
+      font-style:italic;
+      opacity:0;
+      animation:fadeIn 2s 1s forwards;
+    }
+    .section {
+      padding:4rem 1.2rem;
+      max-width:850px;
+      margin:auto;
+      opacity:0;
+      transform:translateY(40px);
+      transition: all 1s ease-out;
+    }
     .section.show { opacity:1; transform:translateY(0); }
     .section h2 { text-align:center; margin-bottom:1.2rem; font-family:'Cinzel', serif; color:#c00000; }
+    .logo { display:block; margin:1.5rem auto; max-width:300px; filter: drop-shadow(0 0 10px #c00000); }
     .cta { text-align:center; margin-top:2rem; }
-    .cta a { background:#c00000; color:#fff; padding:0.9rem 2rem; text-decoration:none; border-radius:8px; font-weight:bold; transition: background 0.3s ease, transform 0.2s ease; box-shadow:0 0 8px rgba(192,0,0,0.4); display:inline-block; }
+    .cta a {
+      background:#c00000;
+      color:#fff;
+      padding:0.9rem 2rem;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow:0 0 8px rgba(192,0,0,0.4);
+      display:inline-block;
+      margin-bottom:0.5rem;
+    }
     .cta a:hover { background:#a80000; transform:translateY(-2px); }
     footer { background:#fdfcf9; color:#888; text-align:center; padding:1.5rem; margin-top:3rem; }
     .instructors { display:flex; flex-direction:column; align-items:center; gap:2rem; padding:4rem 1rem; }
-    .instructor-card { background:#fdfcf9; border-radius:12px; max-width:600px; width:90%; padding:1.5rem; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .instructor-card {
+      background:#fdfcf9;
+      border-radius:12px;
+      max-width:600px;
+      width:90%;
+      padding:1.5rem;
+      text-align:center;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
     .instructor-card:hover { transform:translateY(-5px); }
     .instructor-card img { max-width:100%; border-radius:10px; margin-bottom:1rem; }
     .instructor-card h3 { color:#c00000; font-family:'Cinzel', serif; margin-bottom:0.5rem; }
@@ -64,32 +121,116 @@
   <p>Where Spirit Meets Strength</p>
 </header>
 
-<!-- Existing Sections (Welcome, Join Journey, Instructors, Achievements, FAQs) -->
+<!-- Welcome Section -->
+<div class="section">
+  <img src="images/IMG-20250405-WA0028.jpg" alt="Shambhala Official Logo" class="logo" />
+  <h2>Welcome to the Movement</h2>
+  <p style="color: #000; font-style: italic; font-weight: 500;">
+    Shambhala is not just a martial arts brand. It is a living path of discipline, spirituality, and transformation. Born from the journey of one spirit, passion, and vision. Here at Shambhala we focus primarily on Shotokan Karate, and aim to refine the overall character of the student, through the philosophy of Martial Arts.
+  </p>
+</div>
 
-<!-- Examination Updates Section -->
+<!-- Join the Journey Section -->
+<div class="section">
+  <h2>Join the Journey</h2>
+  <p style="color: #000; font-style: italic; font-weight: 500;">
+    Whether you're a beginner, a seeker of martial wisdom, or a black belt, Shambhala welcomes you with grace. Learn Karate, explore its roots, and walk the warrior path with purpose.
+  </p>
+  <div class="cta">
+    <a href="#" onclick="openFormModal()">Sign Up for Training</a>
+    <a href="#contact">Book a Free Trial</a>
+  </div>
+</div>
+
+<!-- Instructors Section -->
+<div class="section instructors">
+  <h2>Meet Our Instructors</h2>
+  <div class="instructor-card">
+    <img src="images/sensei-deb.jpg" alt="Sensei Debabrata Chakraborty" />
+    <h3>Shihan Dai Debabrata Chakraborty</h3>
+    <p>Head Instructor - 4th Dan Black Belt with 13+ years of experience. A master of traditional and sport Karate guiding Shambhala’s journey from its roots.</p>
+  </div>
+  <div class="instructor-card">
+    <img src="images/sensei-rohan.jpg" alt="Senpai Rohan Mukherjee" />
+    <h3>Senpai Rohan Mukherjee</h3>
+    <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy.</p>
+  </div>
+  <div class="instructor-card">
+    <img src="images/sensei-dev.jpg" alt="Instructor placeholder" />
+    <h3>Announcing soon</h3>
+    <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles to balance strength and spirit.</p>
+  </div>
+  <div class="instructor-card">
+    <img src="images/sensei-aiko.jpg" alt="Instructor placeholder for women's training" />
+    <h3>Announcing soon</h3>
+    <p>Women's Self Defense & Wellness</p>
+  </div>
+</div>
+
+<!-- Achievements Section -->
+<div class="section achievements">
+  <h2>Our Achievements</h2>
+  <ul>
+    <li>🏆 Traditional Shotokan Karate World Champion 2024</li>
+    <li>🥋 13+ Years of Instructional Excellence</li>
+    <li>🌏 International Seminars & Collaborations</li>
+    <li>🎖 Recognized in Global Martial Arts Communities</li>
+  </ul>
+</div>
+
+<!-- === Examination Updates Section (New) === -->
 <div class="section updates">
   <h2>Examination Updates</h2>
-  <ul id="pdfList">
-    <!-- PDF list will be populated by JS -->
-  </ul>
+  <ul id="pdfList"></ul>
+</div>
+
+<!-- FAQs Section -->
+<div class="section">
+  <h2>FAQs</h2>
+  <details>
+    <summary>Who can join Shambhala? Is there an age limit?</summary>
+    <p>Shambhala welcomes everyone aged 6 and above. Whether you're a child, adult, or senior, you can begin your martial journey with us.</p>
+  </details>
+  <details>
+    <summary>Do I need any prior experience in martial arts?</summary>
+    <p>No prior experience is needed. We offer programs for all levels, from beginners to advanced practitioners.</p>
+  </details>
+  <details>
+    <summary>What style of Karate is taught at Shambhala?</summary>
+    <p>We teach traditional Shotokan Karate with emphasis on both sport and philosophical aspects of martial training.</p>
+  </details>
 </div>
 
 <!-- Contact Section -->
 <div class="contact-section" id="contact">
   <h2>Contact Us</h2>
-  <p>Email: <a href="mailto:shambhalainc2025@gmail.com" style="color: #c00000; font-weight: bold; text-decoration: none;">shambhalainc2025@gmail.com</a></p>
+  <p>Email: <a href="mailto:shambhalainc2025@gmail.com" style="color:#c00000;font-weight:bold;text-decoration:none;">shambhalainc2025@gmail.com</a></p>
 </div>
 
+<!-- Footer -->
 <footer>
-  <p style="font-size:1rem;">Follow us on Instagram
-    <a href="https://www.instagram.com/shambhala_official" target="_blank" style="color: #c00000; font-weight: bold; text-decoration: none; margin-left: 4px;"
+  <p style="font-size:1rem;">
+    Follow us on Instagram
+    <a href="https://www.instagram.com/shambhala_official" target="_blank" style="color:#c00000;font-weight:bold;text-decoration:none;margin-left:4px;"
        onmouseover="this.style.textDecoration='underline'; this.style.color='#a80000';"
        onmouseout="this.style.textDecoration='none'; this.style.color='#c00000';">@shambhala_official</a>
   </p>
   <p>&copy; 2025 Shambhala. All rights reserved.</p>
 </footer>
 
+<!-- Modal Form -->
+<div id="formModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeFormModal()">&times;</span>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+</div>
+
 <script>
+  // Modal functions
+  function openFormModal() { document.getElementById('formModal').style.display='block'; }
+  function closeFormModal() { document.getElementById('formModal').style.display='none'; }
+
   // Section fade-in observer
   const sections = document.querySelectorAll('.section');
   const observer = new IntersectionObserver(entries => {
@@ -97,11 +238,10 @@
   }, { threshold: 0.15 });
   sections.forEach(section => observer.observe(section));
 
-  // === Static PDF List for GitHub Pages ===
+  // PDF List for Examination Updates
   const pdfs = [
     "exam-update1.pdf",
     "exam-update2.pdf"
-    // Add more PDF filenames here
   ];
 
   const pdfList = document.getElementById('pdfList');
