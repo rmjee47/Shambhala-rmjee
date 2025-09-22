@@ -4,411 +4,125 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shambhala</title>
-  
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
 
-  <!-- SEO -->
+  <!-- SEO / OG -->
   <meta name="description" content="Shambhala – Where Spirit Meets Strength. Shotokan Karate training, discipline, and martial philosophy for all ages. Join the warrior journey today.">
-  <meta name="keywords" content="Shambhala, Karate, Shotokan, Martial Arts, Dojo, Self Defense, India">
-  <meta name="author" content="Shambhala Official">
-
-  <!-- Open Graph for social sharing -->
   <meta property="og:title" content="Shambhala – Where Spirit Meets Strength">
-  <meta property="og:description" content="Traditional Shotokan Karate dojo. Train in discipline, strength, and spirit.">
-  <meta property="og:image" content="IMG-20250405-WA0028.jpg">
-  <meta property="og:url" content="https://shambhala.com">
+  <meta property="og:image" content="images/IMG-20250405-WA0028.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('karate-vedic-texture.png') repeat;
-      background-size: cover;
-      color: #111;
-      scroll-behavior: smooth;
-      line-height: 1.6;
-    }
+    /* --- Your existing styles --- */
+    body { margin:0; font-family:'Segoe UI', sans-serif; background:url('images/karate-vedic-texture.png') repeat; background-size:cover; color:#111; scroll-behavior:smooth; line-height:1.6; }
+    header { background: linear-gradient(to bottom,#000,#111); color:#fff; padding:2.5rem 1rem; text-align:center; }
+    header h1 { margin:0; font-size:2.8rem; font-family:'Cinzel', serif; letter-spacing:2px; animation:fadeIn 2s ease-out forwards; background-color:#000; padding:0.5rem 1.2rem; display:inline-block; border-radius:10px; text-shadow:0 0 15px rgba(255,255,255,0.7); }
+    header p { margin-top:0.7rem; font-size:1.2rem; font-style:italic; opacity:0; animation:fadeIn 2s 1s forwards; }
+    .section { padding:4rem 1.2rem; max-width:850px; margin:auto; opacity:0; transform:translateY(40px); transition: all 1s ease-out; }
+    .section.show { opacity:1; transform:translateY(0); }
+    .section h2 { text-align:center; margin-bottom:1.2rem; font-family:'Cinzel', serif; color:#c00000; }
+    .cta { text-align:center; margin-top:2rem; }
+    .cta a { background:#c00000; color:#fff; padding:0.9rem 2rem; text-decoration:none; border-radius:8px; font-weight:bold; transition: background 0.3s ease, transform 0.2s ease; box-shadow:0 0 8px rgba(192,0,0,0.4); display:inline-block; }
+    .cta a:hover { background:#a80000; transform:translateY(-2px); }
+    footer { background:#fdfcf9; color:#888; text-align:center; padding:1.5rem; margin-top:3rem; }
+    .instructors { display:flex; flex-direction:column; align-items:center; gap:2rem; padding:4rem 1rem; }
+    .instructor-card { background:#fdfcf9; border-radius:12px; max-width:600px; width:90%; padding:1.5rem; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .instructor-card:hover { transform:translateY(-5px); }
+    .instructor-card img { max-width:100%; border-radius:10px; margin-bottom:1rem; }
+    .instructor-card h3 { color:#c00000; font-family:'Cinzel', serif; margin-bottom:0.5rem; }
+    details { background:#fff; border-radius:6px; padding:1rem; margin-bottom:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); cursor:pointer; transition:all 0.3s ease; }
+    summary { font-weight:bold; font-size:1.1rem; color:#c00000; outline:none; }
+    details[open] summary { margin-bottom:0.5rem; }
+    details p { margin:0.5rem 0 0; color:#333; }
+    .achievements { background:#fff; padding:3rem 1rem; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); margin-top:2rem; }
+    .achievements ul { list-style:none; padding:0; margin:0; }
+    .achievements li { margin:0.8rem 0; font-size:1.1rem; }
 
-    header {
-      background: linear-gradient(to bottom, #000, #111);
-      color: #fff;
-      padding: 2.5rem 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 2px;
-      animation: fadeIn 2s ease-out forwards;
-      background-color: #000;
-      padding: 0.5rem 1.2rem;
-      display: inline-block;
-      border-radius: 10px;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-    }
-
-    header p {
-      margin-top: 0.7rem;
-      font-size: 1.2rem;
-      font-style: italic;
-      opacity: 0;
-      animation: fadeIn 2s 1s forwards;
-    }
-
-    .section {
-      padding: 4rem 1.2rem;
-      max-width: 850px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease-out;
-    }
-
-    .section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .section h2 {
-      text-align: center;
-      margin-bottom: 1.2rem;
-      font-family: 'Cinzel', serif;
-      color: #c00000;
-    }
-
-    .logo {
-      display: block;
-      margin: 1.5rem auto;
-      max-width: 300px;
-      filter: drop-shadow(0 0 10px #c00000);
-    }
-
-    .cta {
-      text-align: center;
-      margin-top: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem; /* spacing between buttons */
-    }
-
-    .cta a {
-      background: #c00000;
-      color: #fff;
-      padding: 0.9rem 2rem;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 0 8px rgba(192,0,0,0.4);
-      display: inline-block;
-      min-width: 220px; /* touch-friendly size */
-      text-align: center;
-    }
-
-    .cta a:hover {
-      background: #a80000;
-      transform: translateY(-2px);
-    }
-
-    /* Mobile adjustment: stack buttons */
-    @media (max-width: 600px) {
-      .cta {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-    footer {
-      background: #fdfcf9;
-      color: #888;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .instructors {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      padding: 4rem 1rem;
-    }
-
-    .instructor-card {
-      background: #fdfcf9;
-      border-radius: 12px;
-      max-width: 600px;
-      width: 90%;
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .instructor-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .instructor-card img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-
-    .instructor-card h3 {
-      color: #c00000;
-      font-family: 'Cinzel', serif;
-      margin-bottom: 0.5rem;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 1rem;
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: auto;
-      padding: 1rem;
-      border-radius: 10px;
-      width: 95%;
-      max-width: 700px;
-      height: 85vh;
-      overflow: auto;
-    }
-
-    .close-btn {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close-btn:hover {
-      color: #000;
-    }
-
-    .contact-section {
-      background-color: #fdfcf9;
-      padding: 4rem 1rem;
-      text-align: center;
-    }
-
-    .contact-section h2 {
-      font-family: 'Cinzel', serif;
-      color: #c00000;
-    }
-
-    .contact-section p {
-      font-size: 1rem;
-      color: #333;
-    }
-
-    details {
-      background: #fff;
-      border-radius: 6px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    summary {
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: #c00000;
-      outline: none;
-    }
-
-    details[open] summary {
-      margin-bottom: 0.5rem;
-    }
-
-    details p {
-      margin: 0.5rem 0 0;
-      color: #333;
-    }
-
-    .achievements {
-      background: #fff;
-      padding: 3rem 1rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-top: 2rem;
-    }
-
-    .achievements ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .achievements li {
-      margin: 0.8rem 0;
-      font-size: 1.1rem;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* Examination Updates */
+    .updates { margin:3rem auto; padding:2rem; max-width:800px; background:#fdfdfd; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.1); }
+    .updates h2 { color:#c00000; text-align:center; margin-bottom:1rem; }
+    .updates ul { list-style:none; padding:0; }
+    .updates ul li { margin:0.7rem 0; padding:0.8rem; background:#fff3f3; border-radius:8px; box-shadow:0 0 6px rgba(192,0,0,0.15); }
+    .updates a { color:#c00000; font-weight:bold; text-decoration:none; }
+    .updates a:hover { text-decoration:underline; }
+    #uploadFormContainer { display:none; margin-top:1rem; }
+    #uploadForm input, #uploadForm button { padding:0.6rem; border-radius:6px; border:1px solid #ddd; }
+    #uploadForm button { background:#c00000; color:#fff; border:none; cursor:pointer; font-weight:bold; transition: background 0.3s ease; }
+    #uploadForm button:hover { background:#a80000; }
+    #adminLoginBtn { padding:0.8rem 1.5rem; border:none; border-radius:8px; cursor:pointer; background:#c00000; color:#fff; font-weight:bold; transition: background 0.3s ease; }
+    #adminLoginBtn:hover { background:#a80000; }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Shambhala</h1>
-    <p>Where Spirit Meets Strength</p>
-  </header>
+<header>
+  <h1>Shambhala</h1>
+  <p>Where Spirit Meets Strength</p>
+</header>
 
-  <div class="section">
-    <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Official Logo" class="logo" />
-    <h2>Welcome to the Movement</h2>
-    <p style="color: #000; font-style: italic; font-weight: 500;">
-      Shambhala is not just a martial arts brand. It is a living path of discipline, spirituality, and transformation. Born from the journey of one spirit, passion, and vision. Here at Shambhala we focus primarily on Shotokan Karate, and aim to refine the overall character of the student, through the philosophy of Martial Arts.
-   </p>
-  </div>
+<!-- Existing Sections Here (Welcome, Join Journey, Instructors, Achievements, etc.) -->
 
-  <div class="section">
-    <h2>Join the Journey</h2>
-    <p style="color: #000; font-style: italic; font-weight: 500;">
-      Whether you're a beginner, a seeker of martial wisdom, or a black belt, Shambhala welcomes you with grace. Learn Karate, explore its roots, and walk the warrior path with purpose.
-    </p>
-    <div class="cta">
-      <a href="#" onclick="openFormModal()">Sign Up for Training</a>
-      <a href="#contact">Book a Free Trial</a>
+<!-- Examination Updates Section -->
+<div class="section updates">
+  <h2>Examination Updates</h2>
+
+  <!-- Admin Upload -->
+  <div id="adminUploadSection">
+    <button id="adminLoginBtn">Admin Login to Upload PDFs</button>
+    <div id="uploadFormContainer">
+      <form id="uploadForm" enctype="multipart/form-data" method="POST" action="/upload">
+        <label for="pdfUpload">Upload New Exam PDF:</label>
+        <input type="file" id="pdfUpload" name="pdfUpload" accept="application/pdf" required>
+        <button type="submit">Upload</button>
+      </form>
     </div>
   </div>
 
-  <div class="section instructors">
-    <h2>Meet Our Instructors</h2>
-    <div class="instructor-card">
-      <img src="sensei-deb.jpg" alt="Sensei Debabrata Chakraborty" />
-      <h3>Shihan Dai Debabrata Chakraborty</h3>
-      <p>Head Instructor - 4th Dan Black Belt with 13+ years of experience. A master of traditional and sport Karate guiding Shambhala’s journey from its roots.</p>
-    </div>
-    <div class="instructor-card">
-      <img src="sensei-rohan.jpg" alt="Senpai Rohan Mukherjee" />
-      <h3>Senpai Rohan Mukherjee</h3>
-      <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy.</p>
-    </div>
-    <div class="instructor-card">
-      <img src="sensei-dev.jpg" alt="Instructor placeholder" />
-      <h3>Announcing soon</h3>
-      <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles to balance strength and spirit.</p>
-    </div>
-    <div class="instructor-card">
-      <img src="sensei-aiko.jpg" alt="Instructor placeholder for women's training" />
-      <h3>Announcing soon</h3>
-      <p>Women's Self Defense & Wellness</p>
-    </div>
-  </div>
+  <!-- PDF List -->
+  <ul>
+    <% if (pdfs.length === 0) { %>
+      <li>No updates available yet.</li>
+    <% } %>
+    <% pdfs.forEach(pdf => { %>
+      <li>
+        <a href="/pdfs/<%= pdf %>" target="_blank"><%= pdf %></a> |
+        <a href="/pdfs/<%= pdf %>" download>Download</a>
+      </li>
+    <% }); %>
+  </ul>
+</div>
 
-  <div class="section achievements">
-    <h2>Our Achievements</h2>
-    <ul>
-      <li>🏆 Traditional Shotokan Karate World Champion 2024</li>
-      <li>🥋 13+ Years of Instructional Excellence</li>
-      <li>🌏 International Seminars & Collaborations</li>
-      <li>🎖 Recognized in Global Martial Arts Communities</li>
-    </ul>
-  </div>
+<!-- Contact Section -->
+<div class="contact-section" id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: <a href="mailto:shambhalainc2025@gmail.com" style="color: #c00000; font-weight: bold; text-decoration: none;">shambhalainc2025@gmail.com</a></p>
+</div>
 
-  <div class="section">
-    <h2>FAQs</h2>
-    <details>
-      <summary><strong>Who can join Shambhala? Is there an age limit?</strong></summary>
-      <p>Shambhala welcomes everyone aged 6 and above. Whether you're a child, adult, or senior, you can begin your martial journey with us.</p>
-    </details>
-    <details>
-      <summary><strong>Do I need any prior experience in martial arts?</strong></summary>
-      <p>No prior experience is needed. We offer programs for all levels, from beginners to advanced practitioners.</p>
-    </details>
-    <details>
-      <summary><strong>What style of Karate is taught at Shambhala?</strong></summary>
-      <p>We teach traditional Shotokan Karate with emphasis on both sport and philosophical aspects of martial training.</p>
-    </details>
-  </div>
+<footer>
+  <p>&copy; 2025 Shambhala. All rights reserved.</p>
+</footer>
 
-  <div class="contact-section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:shambhalainc2025@gmail.com" style="color: #c00000; text-decoration: none; font-weight: bold;">shambhalainc2025@gmail.com</a></p>
-  </div>
-
-  <footer>
-    <p style="font-size: 1rem;">
-      Follow us on Instagram
-      <a href="https://www.instagram.com/shambhala_official" 
-         target="_blank" 
-         style="color: #c00000; font-weight: bold; text-decoration: none; margin-left: 4px;"
-         onmouseover="this.style.textDecoration='underline'; this.style.color='#a80000';"
-         onmouseout="this.style.textDecoration='none'; this.style.color='#c00000';">
-        @shambhala_official
-      </a>
-    </p>
-    <p>&copy; 2025 Shambhala. All rights reserved.</p>
-  </footer>
-
-  <!-- Modal -->
-  <div id="formModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeFormModal()">&times;</span>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxLrudjEDAwrI-WDuqulvFhvtsOyS_7xryAgqCuwNM580-yQ/viewform?embedded=true" 
-              width="100%" 
-              height="100%" 
-              style="min-height:500px;" 
-              frameborder="0" 
-              marginheight="0" 
-              marginwidth="0">Loading…</iframe>
-    </div>
-  </div>
-
-  <script>
-    function openFormModal() {
-      document.getElementById('formModal').style.display = 'block';
+<script>
+  // Admin login for PDF upload
+  document.getElementById('adminLoginBtn').addEventListener('click', function() {
+    const password = prompt("Enter admin password to upload PDFs:");
+    if(password === "ShambhalaAdmin2025") { // change password as needed
+      document.getElementById('uploadFormContainer').style.display = 'block';
+      this.style.display = 'none';
+      alert("Welcome, Admin! You can now upload PDFs.");
+    } else {
+      alert("Incorrect password. Access denied.");
     }
+  });
 
-    function closeFormModal() {
-      document.getElementById('formModal').style.display = 'none';
-    }
-
-    window.addEventListener('message', function(event) {
-      if (event.origin.includes("google.com")) {
-        const formUrl = event.data;
-        if (formUrl && formUrl.includes("formResponse")) {
-          setTimeout(() => {
-            closeFormModal();
-            window.location.href = "thank-you.html";
-          }, 2000);
-        }
-      }
-    });
-
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.15 });
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  </script>
+  // Section fade-in observer
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
+  }, { threshold: 0.15 });
+  sections.forEach(section => observer.observe(section));
+</script>
 </body>
 </html>
