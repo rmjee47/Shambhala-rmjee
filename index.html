@@ -1,10 +1,25 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shambhala</title>
+  
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
+
+  <!-- SEO -->
+  <meta name="description" content="Shambhala – Where Spirit Meets Strength. Shotokan Karate training, discipline, and martial philosophy for all ages. Join the warrior journey today.">
+  <meta name="keywords" content="Shambhala, Karate, Shotokan, Martial Arts, Dojo, Self Defense, India">
+  <meta name="author" content="Shambhala Official">
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="Shambhala – Where Spirit Meets Strength">
+  <meta property="og:description" content="Traditional Shotokan Karate dojo. Train in discipline, strength, and spirit.">
+  <meta property="og:image" content="IMG-20250405-WA0028.jpg">
+  <meta property="og:url" content="https://shambhala.com">
+  <meta name="twitter:card" content="summary_large_image">
+
   <style>
     body {
       margin: 0;
@@ -13,12 +28,13 @@
       background-size: cover;
       color: #111;
       scroll-behavior: smooth;
+      line-height: 1.6;
     }
 
     header {
-      background: #000;
+      background: linear-gradient(to bottom, #000, #111);
       color: #fff;
-      padding: 2rem;
+      padding: 2.5rem 1rem;
       text-align: center;
     }
 
@@ -29,23 +45,23 @@
       letter-spacing: 2px;
       animation: fadeIn 2s ease-out forwards;
       background-color: #000;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.2rem;
       display: inline-block;
       border-radius: 10px;
       text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
     }
 
     header p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
+      margin-top: 0.7rem;
+      font-size: 1.2rem;
       font-style: italic;
       opacity: 0;
       animation: fadeIn 2s 1s forwards;
     }
 
     .section {
-      padding: 4rem 1rem;
-      max-width: 800px;
+      padding: 4rem 1.2rem;
+      max-width: 850px;
       margin: auto;
       opacity: 0;
       transform: translateY(40px);
@@ -59,7 +75,7 @@
 
     .section h2 {
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       font-family: 'Cinzel', serif;
       color: #c00000;
     }
@@ -79,23 +95,25 @@
     .cta a {
       background: #c00000;
       color: #fff;
-      padding: 0.8rem 1.8rem;
+      padding: 0.9rem 2rem;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
       box-shadow: 0 0 8px rgba(192,0,0,0.4);
+      display: inline-block;
     }
 
     .cta a:hover {
       background: #a80000;
+      transform: translateY(-2px);
     }
 
     footer {
       background: #fdfcf9;
       color: #888;
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem;
       margin-top: 3rem;
     }
 
@@ -151,7 +169,8 @@
       border-radius: 10px;
       width: 95%;
       max-width: 700px;
-      height: 90vh;
+      height: 85vh;
+      max-height: 700px;
       overflow: auto;
     }
 
@@ -209,6 +228,25 @@
       color: #333;
     }
 
+    .achievements {
+      background: #fff;
+      padding: 3rem 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+    }
+
+    .achievements ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .achievements li {
+      margin: 0.8rem 0;
+      font-size: 1.1rem;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -223,7 +261,7 @@
   </header>
 
   <div class="section">
-    <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Logo" class="logo" />
+    <img src="IMG-20250405-WA0028.jpg" alt="Shambhala Official Logo" class="logo" />
     <h2>Welcome to the Movement</h2>
     <p style="color: #000; font-style: italic; font-weight: 500;">
       Shambhala is not just a martial arts brand. It is a living path of discipline, spirituality, and transformation. Born from the journey of one spirit, passion, and vision. Here at Shambhala we focus primarily on Shotokan Karate, and aim to refine the overall character of the student, through the philosophy of Martial Arts.
@@ -237,31 +275,42 @@
     </p>
     <div class="cta">
       <a href="#" onclick="openFormModal()">Sign Up for Training</a>
+      <a href="#contact" style="margin-left: 1rem;">Book a Free Trial</a>
     </div>
   </div>
 
   <div class="section instructors">
     <h2>Meet Our Instructors</h2>
     <div class="instructor-card">
-      <img src="sensei-deb.jpg" alt="Sensei Ichiban" />
+      <img src="sensei-deb.jpg" alt="Sensei Debabrata Chakraborty" />
       <h3>Shihan Dai Debabrata Chakraborty</h3>
       <p>Head Instructor - 4th Dan Black Belt with 13+ years of experience. A master of traditional and sport Karate guiding Shambhala’s journey from its roots.</p>
     </div>
     <div class="instructor-card">
-      <img src="sensei-rohan.jpg" alt="Sensei Akira" />
+      <img src="sensei-rohan.jpg" alt="Senpai Rohan Mukherjee" />
       <h3>Senpai Rohan Mukherjee</h3>
       <p>Traditional Shotokan Karate World Champion, expert in Kumite & Kata. Known for explosive techniques and deep understanding of martial philosophy.</p>
     </div>
     <div class="instructor-card">
-      <img src="sensei-dev.jpg" alt="Sensei Dev" />
+      <img src="sensei-dev.jpg" alt="Instructor placeholder" />
       <h3>Announcing soon</h3>
       <p>Karate for Mind & Body. Fuses modern training with ancient Vedic principles to balance strength and spirit.</p>
     </div>
     <div class="instructor-card">
-      <img src="sensei-aiko.jpg" alt="Sensei Aiko" />
+      <img src="sensei-aiko.jpg" alt="Instructor placeholder for women's training" />
       <h3>Announcing soon</h3>
       <p>Women's Self Defense & Wellness</p>
     </div>
+  </div>
+
+  <div class="section achievements">
+    <h2>Our Achievements</h2>
+    <ul>
+      <li>🏆 Traditional Shotokan Karate World Champion 2024</li>
+      <li>🥋 13+ Years of Instructional Excellence</li>
+      <li>🌏 International Seminars & Collaborations</li>
+      <li>🎖 Recognized in Global Martial Arts Communities</li>
+    </ul>
   </div>
 
   <div class="section">
@@ -280,14 +329,14 @@
     </details>
   </div>
 
-  <div class="contact-section">
+  <div class="contact-section" id="contact">
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:shambhalainc2025@gmail.com" style="color: #c00000; text-decoration: none; font-weight: bold;">shambhalainc2025@gmail.com</a></p>
   </div>
 
   <footer>
     <p style="font-size: 1rem;">
-      Follow us on instagram
+      Follow us on Instagram
       <a href="https://www.instagram.com/shambhala_official" 
          target="_blank" 
          style="color: #c00000; font-weight: bold; text-decoration: none; margin-left: 4px;"
@@ -299,6 +348,7 @@
     <p>&copy; 2025 Shambhala. All rights reserved.</p>
   </footer>
 
+  <!-- Modal -->
   <div id="formModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeFormModal()">&times;</span>
